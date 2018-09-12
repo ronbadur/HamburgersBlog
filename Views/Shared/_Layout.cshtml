@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Styles/home_page.css")
+</head>
+
+
+
+
+<body>
+
+
+    <div>
+        <!-- <audio src="./audio/mymusic.mp3" type="audio/mpeg" autoplay /> -->
+    </div>
+    <header>
+        <div>
+            <img alt="home" src="~/media/images/banner.jpg" class="homepage-img" />
+        </div>
+        <div class="blog-app-bar">
+            <div class="container">
+                <nav class="nav">
+                    <!-- Navigation -->
+                    <ul>
+                        <li class="nav-link">@Html.ActionLink("Posts", "Index", "Posts")</li>
+                        <li class="nav-link">@Html.ActionLink("Princesses", "Index", "Princesses")</li>
+                        <li class="nav-link">@Html.ActionLink("Maps", "Index", "Maps")</li>
+                        @{
+                            if (!Request.IsAuthenticated)
+                            {
+                                <li class="nav-link">@Html.ActionLink("Admin", "Login", "Admin")</li>
+                            }
+                            else
+                            {
+                                <li class="nav-link dropdown">
+                                    <button class="dropbtn">Options</button>
+                                    <ul class="dropdown-content">
+                                        <li class="nav-link">@Html.ActionLink("Comments", "Index", "Comments")</li>
+                                        <li class="nav-link">@Html.ActionLink("Tweet", "TweetPage", "Twitter")</li>
+                                        <li class="nav-link">@Html.ActionLink("Logout", "Logout", "Admin")</li>
+                                    </ul>
+                                </li>
+
+                            }
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="blog-header">
+            <div class="container">
+                <h1 class="blog-title">Disney Princess blog</h1>
+                <p class="lead blog-description">Looking for fans to share your opinions with? You belong here</p>
+            </div>
+        </div>
+    </header>
+
+    <main role="main" class="container">
+        <aside class="col-sm-2 aside">
+            <div class="sidebar-module">
+                <h2>Princesses</h2>
+                <section>
+                    <header>
+                        <h3>Classic era</h3>
+                    </header>
+                    <ul class="list-aside">
+                        <li>Snow White</li>
+                        <li>Cinderella</li>
+                        <li>Aurora</li>
+                    </ul>
+                </section>
+                <section>
+                    <header>
+                        <h3>Renaissance era</h3>
+                    </header>
+                    <ul class="list-aside">
+                        <li>Ariel</li>
+                        <li>Belle</li>
+                        <li>Jasmine</li>
+                        <li>Pocahontas</li>
+                        <li>Mulan</li>
+                    </ul>
+                </section>
+                <section>
+                    <header>
+                        <h3>Modern era</h3>
+                    </header>
+                    <ul class="list-aside">
+                        <li>Tiana</li>
+                        <li>Rapunzel</li>
+                        <li>Merida</li>
+                    </ul>
+                </section>
+            </div>
+        </aside>
+        <div class="container">
+            <div class="col-sm-10 blog-main">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+
+    <footer class="blog-footer">
+        <p>This blog was built by actual disney princesses</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

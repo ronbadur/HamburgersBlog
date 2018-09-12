@@ -1,0 +1,164 @@
+﻿@model IEnumerable<HamburgersBlog.Models.Princess>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/d3")
+
+<head>
+    <style>
+        .arc text {
+            font: 10px sans-serif;
+            text-anchor: middle;
+        }
+
+        .arc path {
+            stroke: #fff;
+        }
+    </style>
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var svg = d3.select("svg"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height"),
+            radius = Math.min(width, height) / 2,
+            g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        var color = d3.scaleOrdinal(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+        var pie = d3.pie()
+            .sort(null)
+            .value(function (d) { return d.value; });
+
+        var path = d3.arc()
+            .outerRadius(radius - 10)
+            .innerRadius(0);
+
+        var label = d3.arc()
+            .outerRadius(radius - 40)
+            .innerRadius(radius - 40);
+
+        var kingdomTypes = ['RoyalBlood', 'MarriedToRoyalty', 'NotRoyal'];
+
+        d3.json("/Princesses/IndexData", function (data) {
+            var groupByRoyaltyType = {};
+
+            data.forEach(function (d) {
+                groupByRoyaltyType[d.RoyaltyType] = (groupByRoyaltyType[d.RoyaltyType] || 0) + 1;
+            });
+
+            var revisedData = Object.keys(groupByRoyaltyType).map(function (d) { return { value: groupByRoyaltyType[d], role: kingdomTypes[d] } });
+
+            var arc = g.selectAll(".arc")
+                .data(pie(revisedData))
+                .enter().append("g")
+                .attr("class", "arc");
+
+            arc.append("path")
+                .attr("d", path)
+                .attr("fill", function (d) { return color(d.value); });
+
+            arc.append("text")
+                .attr("transform", function (d) { return "translate(" + label.centroid(d) + ")"; })
+                .attr("dy", "0.35em")
+                .text(function (d) { return d.data.role; });
+        })
+    })
+</script>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    if (Request.IsAuthenticated)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+}
+
+
+<div class="container">
+    @using (Html.BeginForm("", "Princesses", FormMethod.Post, new { @class = "form-inline" }))
+    {
+        <h3>Filter princesess by</h3>
+        <div class="form-group">
+            @Html.TextBox("SearchName", "", new { @class = "form-control", placeholder = "Name" })
+        </div>
+        <div class="form-group">
+            @Html.DropDownList("SearchRoyaltyType", EnumHelper.GetSelectList(typeof(HamburgersBlog.Models.KingdomType)), "RoyaltyType", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.TextBox("SearchCreationYear", "", new { @class = "form-control", placeholder = "CreationYear" })
+        </div>
+        <input class="btn btn-search-posts" type="submit" value="Search" />
+    }
+
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoyaltyType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HairColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MovieName)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoyaltyType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HairColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieName)
+            </td>
+            @{
+                if (Request.IsAuthenticated)
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PrincessID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PrincessID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PrincessID })
+                    </td>
+                }
+            }
+        </tr>
+    }
+
+</table>
+
+<br />
+<b><u>Entire Statistics:</u></b>
+<br />
+<svg width="480" height="250"></svg>
+
