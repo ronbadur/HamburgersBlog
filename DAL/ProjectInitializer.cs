@@ -199,6 +199,60 @@ namespace HamburgersBlog.DAL
             maps.ForEach(m => context.Maps.Add(m));
             context.SaveChanges();
 
+
+            var resturants = new List<Resturant>
+            {
+                new Resturant
+                {
+                    ResturantId=1,
+                    Location="Tel Aviv",
+                    Name="Vitrina",
+                    Rate=5.0,
+                },
+                new Resturant
+                {
+                    ResturantId=2,
+                    Location="Rishon Lezion",
+                    Name="SuSu & Sons",
+                    Rate=3.0,
+                },
+                new Resturant
+                {
+                    ResturantId=3,
+                    Location="Netanya",
+                    Name="Humongous",
+                    Rate=4.0,
+                },
+            };
+            resturants.ForEach(r => context.Resturants.Add(r));
+            context.SaveChanges();
+
+            var hamburgers = new List<Hamburger>
+            {
+                new Hamburger
+                {
+                    HamburgerID=1,
+                    Name="Mexican Burger",
+                    Description="very spicy",
+                    Price=55,
+                },
+                new Hamburger
+                {
+                    HamburgerID=2,
+                    Name="Butler Burger",
+                    Description="Classic burger",
+                    Price=57,
+                },
+                new Hamburger
+                {
+                    HamburgerID=3,
+                    Name="Butler Cheese Burger",
+                    Description="Classic burger with cheese and a love :)",
+                    Price=60,
+                },
+            };
+            hamburgers.ForEach(h => context.Hamburgers.Add(h));
+            context.SaveChanges();
         }
     }
 }

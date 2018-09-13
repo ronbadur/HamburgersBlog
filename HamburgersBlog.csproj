@@ -258,12 +258,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\HamburgerController.cs" />
     <Compile Include="Controllers\MapsController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\PrincessesController.cs" />
+    <Compile Include="Controllers\ResturantsController.cs" />
     <Compile Include="Controllers\TwitterController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="DAL\ProjectInitializer.cs" />
+    <Compile Include="Models\Hamburger.cs" />
     <Compile Include="Models\Resturant.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Global.asax.cs">
@@ -306,6 +309,8 @@
     <Content Include="Views\Error.cshtml" />
     <Content Include="Views\Admin\Tweet.cshtml" />
     <Content Include="Views\Maps\Index.cshtml" />
+    <Content Include="Views\Resturants\Index.cshtml" />
+    <Content Include="Views\Hamburgers\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -13,15 +13,10 @@ namespace HamburgersBlog.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public string AuthorName { get; set; }
+        public string Location { get; set; }
         [Required]
-        public int PrincessID { get; set; }
+        public double Rate { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
-        public DateTime Date { get; set; }
-        public string Content { get; set; }
-
-        public virtual Princess Princess { get; set; }
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Hamburger> Hamburgers { get; set; }
     }
 }
