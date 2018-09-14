@@ -6,6 +6,11 @@ using System.Web;
 
 namespace HamburgersBlog.Models
 {
+    public enum Area
+    {
+        Hazafon, Hadarom, Hamerkaz,
+    }
+
     public class Restaurant
     {
         [Key]
@@ -16,6 +21,11 @@ namespace HamburgersBlog.Models
         public string Location { get; set; }
         [Required]
         public double Rate { get; set; }
+        [Required]
+        public Area Area { get; set; }
+        public bool IsVeganFriendly { get; set; }
+        public bool IsKosher { get; set; }
+        public bool IsParkingAvailable { get; set; }
 
         public virtual ICollection<Hamburger> Hamburgers { get; set; }
     }

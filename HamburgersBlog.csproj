@@ -265,12 +265,13 @@
     <Compile Include="Controllers\MapsController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\PrincessesController.cs" />
+    <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Controllers\SideDishesController.cs" />
     <Compile Include="Controllers\TwitterController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="DAL\ProjectInitializer.cs" />
     <Compile Include="Models\Hamburger.cs" />
-    <Compile Include="Models\Resturant.cs" />
+    <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\SideDish.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Global.asax.cs">
@@ -313,9 +314,16 @@
     <Content Include="Views\Error.cshtml" />
     <Content Include="Views\Admin\Tweet.cshtml" />
     <Content Include="Views\Maps\Index.cshtml" />
-    <Content Include="Views\Resturants\Index.cshtml" />
     <Content Include="Views\Hamburgers\Index.cshtml" />
     <Content Include="Views\SideDishes\Index.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\GroupByPrincess.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Restaurants\Details.cshtml" />
+    <Content Include="Views\Restaurants\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
