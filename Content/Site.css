@@ -657,3 +657,20 @@ footer {
 .not{
     color: darkred;
 }
+
+
+/*Restaurants*/
+.restaurant-card {
+    text-align: center;
+    margin: 20px;
+    display: block;
+    border: 1px dashed black;
+}
+
+.more-details{
+    background-color: blue;
+}
+
+.restaurant-details-button {
+    background-color: blue;
+}

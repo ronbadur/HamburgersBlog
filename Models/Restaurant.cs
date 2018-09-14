@@ -6,10 +6,10 @@ using System.Web;
 
 namespace HamburgersBlog.Models
 {
-    public class Resturant
+    public class Restaurant
     {
         [Key]
-        public int ResturantId { get; set; }
+        public int RestaurantId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

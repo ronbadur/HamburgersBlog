@@ -1,7 +1,8 @@
-﻿@model IEnumerable<HamburgersBlog.Models.Hamburger>
+﻿@model IEnumerable<HamburgersBlog.Models.Restaurant>
 @{
     ViewBag.Title = "Index";
 }
+
 <h2>Hamburgers</h2>
 
 <table class="table">
@@ -10,10 +11,10 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Location)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.Rate)
         </th>
         <th></th>
     </tr>
@@ -24,10 +25,10 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => item.Rate)
             </td>
         </tr>
     }

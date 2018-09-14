@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HamburgersBlog - @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Views/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Styles/home_page.css")
 </head>
@@ -28,7 +29,7 @@
                     <!-- Navigation -->
                     <ul>
                         <li class="nav-link">@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li class="nav-link">@Html.ActionLink("Hamburgers", "Index", "Hamburgers")</li>
+                        <li class="nav-link">@Html.ActionLink("Restaurants", "Index", "Restaurants")</li>
                         <li class="nav-link">@Html.ActionLink("Locations", "Index", "Locations")</li>
                         @{
                             if (!Request.IsAuthenticated)
@@ -69,9 +70,9 @@
                         <h3>Our Top 3:</h3>
                     </header>
                     <ul class="list-aside">
-                        <li>Snow White</li>
-                        <li>Cinderella</li>
-                        <li>Aurora</li>
+                        <li>The Prozdor</li>
+                        <li>Vitrina</li>
+                        <li>Humangous</li>
                     </ul>
                 </section>
                 <section>
@@ -79,21 +80,10 @@
                         <h3>Our <span class="not">NOT</span>  Recommended</h3>
                     </header>
                     <ul class="list-aside">
-                        <li>Ariel</li>
-                        <li>Belle</li>
-                        <li>Jasmine</li>
-                        <li>Pocahontas</li>
-                        <li>Mulan</li>
-                    </ul>
-                </section>
-                <section>
-                    <header>
-                        <h3>Modern era</h3>
-                    </header>
-                    <ul class="list-aside">
-                        <li>Tiana</li>
-                        <li>Rapunzel</li>
-                        <li>Merida</li>
+                        <li>Saloon Burger</li>
+                        <li>Ad Haetzem</li>
+                        <li>110 Burgers</li>
+                        <li>Cabana</li>
                     </ul>
                 </section>
             </div>

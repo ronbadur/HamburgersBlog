@@ -1,0 +1,19 @@
+﻿@model IEnumerable<HamburgersBlog.Models.Restaurant>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Restaurants</h2>
+
+<div class="grid">
+    @foreach (var item in Model)
+    {
+    <div class="restaurant-card col-sm-3">
+        <div class="restaurant-name">@Html.DisplayFor(modelItem => item.Name)</div>
+        <div class="restaurant-rate">Rate: @Html.DisplayFor(modelItem => item.Rate)</div>
+        <div class="restaurant-description">Location: @Html.DisplayFor(modelItem => item.Location)</div>
+        <p class="restaurant-details-button">
+            @Html.ActionLink("More Details", "Details", new { id = item.RestaurantId }, new { @style = "text-decoration:none; color: black;" })
+        </p>
+    </div>
+    }
+</div>

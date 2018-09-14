@@ -200,31 +200,31 @@ namespace HamburgersBlog.DAL
             context.SaveChanges();
 
 
-            var resturants = new List<Resturant>
+            var restaurants = new List<Restaurant>
             {
-                new Resturant
+                new Restaurant
                 {
-                    ResturantId=1,
+                    RestaurantId=1,
                     Location="Tel Aviv",
                     Name="Vitrina",
                     Rate=5.0,
                 },
-                new Resturant
+                new Restaurant
                 {
-                    ResturantId=2,
+                    RestaurantId=2,
                     Location="Rishon Lezion",
                     Name="SuSu & Sons",
                     Rate=3.0,
                 },
-                new Resturant
+                new Restaurant
                 {
-                    ResturantId=3,
+                    RestaurantId=3,
                     Location="Netanya",
                     Name="Humongous",
                     Rate=4.0,
                 },
             };
-            resturants.ForEach(r => context.Resturants.Add(r));
+            restaurants.ForEach(r => context.Restaurants.Add(r));
             context.SaveChanges();
 
             var hamburgers = new List<Hamburger>

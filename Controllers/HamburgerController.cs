@@ -13,7 +13,7 @@ namespace HamburgersBlog.Controllers
     {
         private ProjectContext db = new ProjectContext();
 
-        // GET: Resturants
+        // GET: Hamburgers
         public ActionResult Index()
         {
             var hamburgers = db.Hamburgers;
