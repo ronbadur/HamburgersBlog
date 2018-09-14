@@ -11,7 +11,7 @@ using HamburgersBlog.Models;
 
 namespace HamburgersBlog.Controllers
 {
-    public class PostsController : Controller
+    public class HomeController : Controller
     {
         private ProjectContext db = new ProjectContext();
 
@@ -21,7 +21,7 @@ namespace HamburgersBlog.Controllers
             return View(db.Posts.ToList());
         }
 
-        // GET: Posts/Details/5
+        // GET: Home/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -55,7 +55,7 @@ namespace HamburgersBlog.Controllers
             return View(post);
         }
 
-        // GET: Posts/Create
+        // GET: Home/Create
         public ActionResult Create()
         {
             var allPrincesses = db.Princesses;
@@ -63,7 +63,7 @@ namespace HamburgersBlog.Controllers
             return View();
         }
 
-        // POST: Posts/Create
+        // POST: Home/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -83,7 +83,7 @@ namespace HamburgersBlog.Controllers
             return View(post);
         }
 
-        // GET: Posts/Edit/5
+        // GET: Home/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -101,7 +101,7 @@ namespace HamburgersBlog.Controllers
             return View(post);
         }
 
-        // POST: Posts/Edit/5
+        // POST: Home/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -120,7 +120,7 @@ namespace HamburgersBlog.Controllers
             return View(post);
         }
 
-        // GET: Posts/Delete/5
+        // GET: Home/Delete/5
         [Authorize(Users = "Admin")]
         public ActionResult Delete(int? id)
         {
@@ -136,7 +136,7 @@ namespace HamburgersBlog.Controllers
             return View(post);
         }
 
-        // POST: Posts/Delete/5
+        // POST: Home/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Users = "Admin")]
@@ -194,7 +194,7 @@ namespace HamburgersBlog.Controllers
             return Json(totalPosts.ToList(), JsonRequestBehavior.AllowGet);
         }
 
-        // Get Posts/WantMore
+        // Get Home/WantMore
         [HttpPost]
         public ActionResult WantMore(string princessId, string currentPostId)
         {
