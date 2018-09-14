@@ -9,15 +9,15 @@ using HamburgersBlog.Models;
 
 namespace HamburgersBlog.Controllers
 {
-    public class HamburgersController : Controller
+    public class SideDishesController : Controller
     {
         private ProjectContext db = new ProjectContext();
 
-        // GET: Hamburgers
+        // GET: Side Dishes
         public ActionResult Index()
         {
-            var hamburgers = db.Hamburgers;
-            return View(hamburgers.ToList());
+            var sideDishes = db.SideDishes;
+            return View(sideDishes.ToList());
         }
     }
 }

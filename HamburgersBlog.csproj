@@ -222,6 +222,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Media\images\humongous.jpg" />
+    <Content Include="Media\images\susu-and-sons.png" />
+    <Content Include="Media\images\vitrina.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\d3.js" />
@@ -263,11 +266,13 @@
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\PrincessesController.cs" />
     <Compile Include="Controllers\ResturantsController.cs" />
+    <Compile Include="Controllers\SideDishesController.cs" />
     <Compile Include="Controllers\TwitterController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="DAL\ProjectInitializer.cs" />
     <Compile Include="Models\Hamburger.cs" />
     <Compile Include="Models\Resturant.cs" />
+    <Compile Include="Models\SideDish.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -311,6 +316,7 @@
     <Content Include="Views\Maps\Index.cshtml" />
     <Content Include="Views\Resturants\Index.cshtml" />
     <Content Include="Views\Hamburgers\Index.cshtml" />
+    <Content Include="Views\SideDishes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -320,7 +326,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Media\images\" />
     <Folder Include="Views\Twitter\" />
   </ItemGroup>
   <PropertyGroup>

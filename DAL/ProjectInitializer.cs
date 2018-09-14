@@ -208,6 +208,10 @@ namespace HamburgersBlog.DAL
                     Location="Tel Aviv",
                     Name="Vitrina",
                     Rate=5.0,
+                    IsKosher=false,
+                    IsParkingAvailable=false,
+                    IsVeganFriendly=true,
+
                 },
                 new Resturant
                 {
@@ -215,6 +219,9 @@ namespace HamburgersBlog.DAL
                     Location="Rishon Lezion",
                     Name="SuSu & Sons",
                     Rate=3.0,
+                    IsKosher=true,
+                    IsParkingAvailable=true,
+                    IsVeganFriendly=false,
                 },
                 new Resturant
                 {
@@ -222,6 +229,9 @@ namespace HamburgersBlog.DAL
                     Location="Netanya",
                     Name="Humongous",
                     Rate=4.0,
+                    IsKosher =true,
+                    IsParkingAvailable=true,
+                    IsVeganFriendly=true,
                 },
             };
             resturants.ForEach(r => context.Resturants.Add(r));
@@ -253,6 +263,34 @@ namespace HamburgersBlog.DAL
             };
             hamburgers.ForEach(h => context.Hamburgers.Add(h));
             context.SaveChanges();
-        }
+
+            var sideDishes = new List<SideDish>
+            {
+                new SideDish
+                {
+                    SideDishId=1,
+                    Name="Chips",
+                    Description="a regular chips",
+                    Price=12,
+                },
+                new SideDish
+                {
+                    SideDishId=2,
+                    Name="Sweet Potato Chips",
+                    Description="chips that made from sweet potato",
+                    Price=15,
+                },
+                new SideDish
+                {
+                    SideDishId=3,
+                    Name="Rice",
+                    Description="white rice",
+                    Price=18,
+                },
+            };
+
+            sideDishes.ForEach(s => context.SideDishes.Add(s));
+            context.SaveChanges();
+        }      
     }
 }
