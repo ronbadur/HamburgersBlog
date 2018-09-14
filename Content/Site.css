@@ -8,8 +8,8 @@
 }
 
 @font-face {
-    font-family: 'Disney Font';
-    src: url('../fonts/waltograph42.ttf') format('truetype');
+    font-family: 'Marker';
+    src: url('../fonts/PermanentMarker-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -46,7 +46,7 @@ h6, .h6 {
     margin-top: 0;
     font-weight: normal;
     color: #333;
-    font-family: 'Disney Font';
+    font-family: 'Marker';
 }
 
 .list-aside > li {
@@ -95,8 +95,18 @@ h6, .h6 {
  */
 
 .blog-header {
+    margin-left: 14%;
+    width: 72%;
+    background-repeat: repeat-x;
+    background-position: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin: 0 auto;
+    background-image: url('/media/images/melted-cheese.svg');
+}
+
+.blog-header .container{
+    text-align: center
 }
 
 .blog-title {
@@ -104,9 +114,9 @@ h6, .h6 {
     margin-bottom: 0;
     font-size: 60px;
     font-weight: normal;
-    color: #FF8A80;
+    color: #8090ff;
     transition: font-size 2s;
-    text-shadow: 2px 2px #ff0000;
+    text-shadow: 2px 2px #0c0808;
 }
 
 .blog-title:hover {
@@ -122,7 +132,7 @@ h6, .h6 {
     position: relative;
     /* padding: 1rem; */
     font-weight: 500;
-    color: black;
+    color: yellow;
 }
 
 .form-group {
@@ -224,7 +234,7 @@ h6, .h6 {
 .blog-post-title {
     margin-bottom: 5px;
     font-size: 30px;
-    font-family: 'Disney Font';
+    font-family: 'Marker';
 }
 
 .blog-post-meta {
@@ -642,3 +652,25 @@ footer {
         footer ul li a {
             display: block;
         }
+
+
+.not{
+    color: darkred;
+}
+
+
+/*Restaurants*/
+.restaurant-card {
+    text-align: center;
+    margin: 20px;
+    display: block;
+    border: 1px dashed black;
+}
+
+.more-details{
+    background-color: blue;
+}
+
+.restaurant-details-button {
+    background-color: blue;
+}

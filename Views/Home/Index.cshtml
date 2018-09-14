@@ -30,7 +30,7 @@
         }
     }
 
-    @using (Html.BeginForm("Filter", "Posts", FormMethod.Post, new { @class = "form-inline" }))
+    @using (Html.BeginForm("Filter", "Home", FormMethod.Post, new { @class = "form-inline" }))
     {
         <h3>Filter posts by</h3>
         <div class="form-group">
@@ -54,7 +54,7 @@
     <hr />
     <div class="container row">
         <div class="list-inline buttons">
-            @using (Html.BeginForm("GroupByPrincess", "Posts"))
+            @using (Html.BeginForm("GroupByPrincess", "Home"))
             {
                 <input class="btn btn-lg btn-stats" type="submit" value="Posts Stats" />
                 <p class="btn btn-lg btn-add-blog" href="#" role="button">@Html.ActionLink("Add Post", "Create", null, new { @style = "color: #FF8A80;" })</p>

@@ -1,0 +1,42 @@
+﻿@model HamburgersBlog.Models.Restaurant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h3>Restaurants</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaurantId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RestaurantId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RestaurantId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

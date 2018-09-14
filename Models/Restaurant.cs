@@ -6,19 +6,16 @@ using System.Web;
 
 namespace HamburgersBlog.Models
 {
-    public class Resturant
+    public class Restaurant
     {
         [Key]
-        public int ResturantId { get; set; }
+        public int RestaurantId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
         public string Location { get; set; }
         [Required]
         public double Rate { get; set; }
-        public bool IsVeganFriendly { get; set; }
-        public bool IsKosher { get; set; }
-        public bool IsParkingAvailable { get; set; }
 
         public virtual ICollection<Hamburger> Hamburgers { get; set; }
     }
