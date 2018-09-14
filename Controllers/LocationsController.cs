@@ -8,14 +8,14 @@ using HamburgersBlog.Models;
 
 namespace HamburgersBlog.Controllers
 {
-    public class MapsController : Controller
+    public class LocationsController : Controller
     {
         private ProjectContext db = new ProjectContext();
 
-        // GET: Maps
+        // GET: Locations
         public ActionResult Index()
         {
-            return View(db.Maps.ToList());
+            return View(db.Restaurants.ToList());
         }
     }
 }
