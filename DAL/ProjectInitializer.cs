@@ -211,7 +211,7 @@ namespace HamburgersBlog.DAL
                     IsKosher=false,
                     IsParkingAvailable=false,
                     IsVeganFriendly=true,
-
+                    Area=Area.Hadarom,
                 },
                 new Restaurant
                 {
@@ -222,6 +222,7 @@ namespace HamburgersBlog.DAL
                     IsKosher=true,
                     IsParkingAvailable=true,
                     IsVeganFriendly=false,
+                    Area=Area.Hamerkaz,
                 },
                 new Restaurant
                 {
@@ -232,6 +233,7 @@ namespace HamburgersBlog.DAL
                     IsKosher =true,
                     IsParkingAvailable=true,
                     IsVeganFriendly=true,
+                    Area=Area.Hadarom,
                 },
             };
             restaurants.ForEach(r => context.Restaurants.Add(r));
@@ -290,6 +292,38 @@ namespace HamburgersBlog.DAL
             };
 
             sideDishes.ForEach(s => context.SideDishes.Add(s));
+            context.SaveChanges();
+
+
+            var reviews = new List<Review>
+            {
+                new Review
+                {
+                    ReviewId=1,
+                    Title="very tasty",
+                    AuthorName="Shlomi",
+                    Content="best burger in town",
+                    RestaurantId=1,
+                },
+                new Review
+                {
+                    ReviewId=2,
+                    Title="yum yum",
+                    AuthorName="Itzik a gadol",
+                    Content="Wow, what a burger!",
+                    RestaurantId=2,
+                },
+                new Review
+                {
+                    ReviewId=2,
+                    Title="Too expensive",
+                    AuthorName="Young Itzik",
+                    Content="I like the burger but the price is too high!",
+                    RestaurantId=3,
+                },
+            };
+
+            reviews.ForEach(r => context.Reviews.Add(r));
             context.SaveChanges();
         }      
     }

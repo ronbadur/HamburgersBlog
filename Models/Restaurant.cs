@@ -28,5 +28,6 @@ namespace HamburgersBlog.Models
         public bool IsParkingAvailable { get; set; }
 
         public virtual ICollection<Hamburger> Hamburgers { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
     }
 }

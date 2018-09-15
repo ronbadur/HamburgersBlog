@@ -220,11 +220,25 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Media\images\636160264476632234-1903992238_princesses.png" />
+    <Content Include="Media\images\banner.jpg" />
+    <Content Include="Media\images\disney-princess-banner-disney-princess-26937703-2560-650.jpg" />
+    <Content Include="Media\images\disney_princess_banner.jpg" />
+    <Content Include="Media\images\homepage1.png" />
+    <Content Include="Media\images\homepage2.jpg" />
     <Content Include="Media\images\humongous.jpg" />
+    <Content Include="Media\images\intro_shauli.png" />
+    <Content Include="Media\images\melted-cheese.jpg" />
+    <Content Include="Media\images\melted-cheese.svg" />
+    <Content Include="Media\images\rss.png" />
     <Content Include="Media\images\susu-and-sons.png" />
+    <Content Include="Media\images\top-burger.svg" />
     <Content Include="Media\images\vitrina.jpg" />
+    <Content Include="Media\videos\10SecretFactsAboutDISNEYPrincesses.mp4" />
+    <Content Include="Media\videos\videoblocks-plump-girl-overeating-burger-and-drinking-water-while-riding-exercise-bike_sext_n_cwg__PM.mp4" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\d3.js" />
@@ -238,6 +252,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\IndieFlower.ttf" />
+    <Content Include="fonts\Lobster-Regular.ttf" />
+    <Content Include="fonts\Monoton-Regular.ttf" />
+    <Content Include="fonts\Montserrat-Black.ttf" />
+    <Content Include="fonts\Pacifico-Regular.ttf" />
+    <Content Include="fonts\PermanentMarker-Regular.ttf" />
+    <Content Include="fonts\PoorStory-Regular.ttf" />
+    <Content Include="fonts\VarelaRound-Regular.ttf" />
+    <Content Include="fonts\waltograph42.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -262,16 +285,19 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HamburgerController.cs" />
-    <Compile Include="Controllers\MapsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\PrincessesController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\SideDishesController.cs" />
     <Compile Include="Controllers\TwitterController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="DAL\ProjectInitializer.cs" />
     <Compile Include="Models\Hamburger.cs" />
     <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Models\SideDish.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Global.asax.cs">
@@ -324,6 +350,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Restaurants\Details.cshtml" />
     <Content Include="Views\Restaurants\Index.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
