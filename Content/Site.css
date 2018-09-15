@@ -768,6 +768,39 @@ footer {
     background-color: blue;
 }
 
+.restaurant-img {
+    width: 200px
+}
+
+.details-container {
+    margin: 0 36px;
+}
+
+.restaurant-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.reviews-container{
+    margin-top: 40px;
+}
+
+.review-title{
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 30px;
+    font-family: 'Monoton'
+}
+
+.review-author-name{
+    background: #222;
+    color: #FFF;
+}
+
+.review-content{
+    margin-left: 20px;
+}
+
 .restaurant-image img{
     width: 100%;
 }
