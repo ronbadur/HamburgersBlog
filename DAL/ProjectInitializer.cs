@@ -316,10 +316,18 @@ namespace HamburgersBlog.DAL
                 new Review
                 {
                     ReviewId=2,
-                    Title="Too expensive",
+                    Title="Too  expensive",
                     AuthorName="Young Itzik",
                     Content="I like the burger but the price is too high!",
                     RestaurantId=3,
+                },
+                new Review
+                {
+                    ReviewId=3,
+                    Title="WoW",
+                    AuthorName="Noa",
+                    Content="There is no doubt that this burger in my top 5",
+                    RestaurantId=1,
                 },
             };
 

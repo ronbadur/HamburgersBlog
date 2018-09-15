@@ -4,39 +4,33 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h3>Restaurants</h3>
+    <h2>@Html.DisplayFor(model => model.Name) Details</h2>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RestaurantId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RestaurantId)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Rate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Rate)
-        </dd>
-    </dl>
+    <dl class="dl-horizontal"> </dl>
+    <div class="restaurant-container">
+        <div class="img-container">
+            <img class="restaurant-img" src="/Media/images/@(Model.Name.ToLower()).jpg" alt="Alternate Text" />
+        </div>
+        <div class="details-container">
+            <p>Name: @Html.DisplayFor(model => model.Name)</p>
+            <p>Location: @Html.DisplayFor(model => model.Location)</p>
+            <p>Rate: @Html.DisplayFor(model => model.Rate) Stars</p>
+        </div>
+    </div>
 </div>
+
+<div class="reviews-container">
+    <h2>Reviews</h2>
+    <hr />
+    @foreach (var item in Model.Reviews)
+    {
+        <p class="review-title">@item.Title</p>
+        <p class="review-content">@item.Content</p>
+        <p class="review-author-name">@item.AuthorName</p>
+    }
+</div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RestaurantId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
