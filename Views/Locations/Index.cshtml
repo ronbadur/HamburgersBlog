@@ -42,7 +42,7 @@
 
         // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
         var mapOptions = {
-            zoom: 2,
+            zoom: 8,
             center: Israel,
             mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
         };
@@ -63,27 +63,30 @@
                 geocoder.geocode({ 'address': item.Location}, function (results, status) {
                     console.log(results, status);
 
-                    // Set marker in the map location on the map
-                    var marker = new google.maps.Marker({
-                        'position': results[0].geometry.location,
-                        'map': map,
-                        'title': item.Name
-                    });
+                    if (results.length) {
 
-                    // Make the marker-pin blue
-                    marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+                        // Set marker in the map location on the map
+                        var marker = new google.maps.Marker({
+                            'position': results[0].geometry.location,
+                            'map': map,
+                            'title': item.Name
+                        });
 
-                    // Finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked
-                    google.maps.event.addListener(marker, 'click', function () {
-                        $.ajax('http://api.openweathermap.org/data/2.5/weather?appid=a6b5c2a2cf4790daad5dacb1c0994af6&units=metric&lat=' + marker.position.lat() + '&lon=' + marker.position.lng())
-                            .done(function (res) {
-                                // Put in some information about each Map by its JSON object - Map's name and address
-                                var infowindow = new google.maps.InfoWindow({
-                                    content: "<div class='infoDiv'><h3><u><center>" + item.Name + "</h3></u></center>" + "<h4><center>" + item.Address + "</h4></center><h5><center><b>Temperature: </b>" + res.main.temp +"C°</center></h5></div></div>"
-                                });
-                                infowindow.open(map, marker);
-                            })
-                    });
+                        // Make the marker-pin blue
+                        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+                        // Finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked
+                        google.maps.event.addListener(marker, 'click', function () {
+                            $.ajax('http://api.openweathermap.org/data/2.5/weather?appid=a6b5c2a2cf4790daad5dacb1c0994af6&units=metric&lat=' + marker.position.lat() + '&lon=' + marker.position.lng())
+                                .done(function (res) {
+                                    // Put in some information about each Map by its JSON object - Map's name and address
+                                    var infowindow = new google.maps.InfoWindow({
+                                        content: "<div class='infoDiv'><h3><u><center>" + item.Name + "</h3></u></center>" + "<h4><center>" + item.Location + "</h4></center><h5><center><b>Temperature: </b>" + res.main.temp + "C°</center></h5></div></div>"
+                                    });
+                                    infowindow.open(map, marker);
+                                })
+                        });
+                    }
             });
         })
     }

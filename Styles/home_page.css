@@ -6,10 +6,9 @@
 
 .blog-app-bar {
     width: 100%;
-    background-color: #424242;
     color: white !important;
     -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
-    box-shadow: 10px 2px 5px rgb(29, 24, 24);
+    box-shadow: 7px 11px 20px 0px rgb(84, 84, 84);
     position: sticky;
     z-index: 9999;
 }
@@ -17,7 +16,6 @@
 .aside {
     float: left;
     left: 0;
-    position: absolute;
     display: flex;
 }
 /* Dropdown Button */

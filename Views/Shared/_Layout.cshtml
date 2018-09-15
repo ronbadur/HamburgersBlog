@@ -20,8 +20,14 @@
         <!-- <audio src="./audio/mymusic.mp3" type="audio/mpeg" autoplay /> -->
     </div>
     <header>
-        <div>
+        @*<div>
             <img alt="home" src="~/media/images/top-burger.svg" viewBox="0 0 300 400" class="homepage-img" />
+        </div>*@
+        <div class="blog-header">
+            <div class="container">
+                <h1 class="blog-title">Hamburgers Blog</h1>
+                <p class="lead blog-description">Can't resist a good Burger? You are at the right place!</p>
+            </div>
         </div>
         <div class="blog-app-bar">
             <div class="container">
@@ -39,7 +45,7 @@
                             else
                             {
                                 <li class="nav-link dropdown">
-                                    <button class="dropbtn">Options</button>
+                                    <button class="dropbtn nav-options">Options</button>
                                     <ul class="dropdown-content">
                                         <li class="nav-link">@Html.ActionLink("Comments", "Index", "Comments")</li>
                                         <li class="nav-link">@Html.ActionLink("Tweet", "TweetPage", "Twitter")</li>
@@ -53,19 +59,14 @@
                 </nav>
             </div>
         </div>
-        <div class="blog-header">
-            <div class="container">
-                <h1 class="blog-title">Hamburgers Blog</h1>
-                <p class="lead blog-description">Can't resist a good Burger? You are at the right place!</p>
-            </div>
-        </div>
+
     </header>
 
     <main role="main" class="container">
         <aside class="col-sm-2 aside">
             <div class="sidebar-module">
                 <h2>Hamburgers</h2>
-                <section>
+                <section class="side-bar-section">
                     <header>
                         <h3>Our Top 3:</h3>
                     </header>
@@ -75,9 +76,9 @@
                         <li>Humangous</li>
                     </ul>
                 </section>
-                <section>
+                <section class="side-bar-section">
                     <header>
-                        <h3>Our <span class="not">NOT</span>  Recommended</h3>
+                        <h3>Our <span class="not">NOT</span>  Recommended:</h3>
                     </header>
                     <ul class="list-aside">
                         <li>Saloon Burger</li>

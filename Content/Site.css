@@ -17,6 +17,24 @@
     src: url('../fonts/VarelaRound-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Lobster';
+    src: url('../fonts/Lobster-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Pacifico';
+    src: url('../fonts/Pacifico-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Monoton';
+    src: url('../fonts/Monoton-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'PoorStory';
+    src: url('../fonts/PoorStory-Regular.ttf') format('truetype');
+}
 
 
 /*
@@ -46,7 +64,16 @@ h6, .h6 {
     margin-top: 0;
     font-weight: normal;
     color: #333;
-    font-family: 'Marker';
+    font-family: 'PoorStory';
+}
+
+    h1.blog-title {
+        font-family: 'Monoton';
+    }
+
+.list-aside {
+    margin-left: 15px;
+    padding: 0;
 }
 
 .list-aside > li {
@@ -55,6 +82,11 @@ h6, .h6 {
     font-weight: normal;
     font-family: 'Hanzo Font';
 }
+
+.side-bar-section{
+    margin-left: 0;
+}
+
 /* Nav links */
 .blog-nav-item {
     position: relative;
@@ -102,19 +134,36 @@ h6, .h6 {
     padding-top: 20px;
     padding-bottom: 20px;
     margin: 0 auto;
-    background-image: url('/media/images/melted-cheese.svg');
+    /*background-image: url('/media/images/melted-cheese.svg');*/
 }
 
 .blog-header .container{
     text-align: center
 }
 
+.container {
+    max-width: 100%;
+}
+
+main.container {
+    background-image: url("/Media/images/817988.jpg");
+}
+
+.col-sm-10 {
+    padding: 5vh 0vw
+}
+
+aside.col-sm-2 {
+    padding: 5vh 0vw
+}
+
 .blog-title {
     margin-top: 30px;
     margin-bottom: 0;
     font-size: 60px;
+    text-align: -webkit-left;
     font-weight: normal;
-    color: #8090ff;
+    color: #393b46;
     transition: font-size 2s;
     text-shadow: 2px 2px #0c0808;
 }
@@ -148,7 +197,8 @@ h6, .h6 {
     font-size: 18px;
     line-height: 1.5;
     padding: 5vh 5vw;
-    background-color: #fff9f5;
+    background-color: #fff9f5a8;
+    margin-left: 5vw;
     border-radius: 22px;
     box-shadow: 0px 2px 16px 3px #ccc;
 }
@@ -169,27 +219,28 @@ h6, .h6 {
 }
 
 .btn-stats {
-    background-color: #FF8A80;
+    background-color: black;
     color: white;
 }
 
 .btn-add-blog {
     box-shadow: 0 0 3px 0px #777;
-    color: #FF8A80;
+    color: black;
     background-color: white;
 }
 
 .btn-search-posts {
-    background-color: #FF8A80;
+    background-color: black;
     color: white;
 }
 /* Sidebar modules for boxing content */
 .sidebar-module {
     padding: 15px;
-    background-color: #fff9f5;
+    background-color: #fff9f5a8;
     border-radius: 22px;
     box-shadow: 0px 2px 16px 3px #ccc;
     z-index: 999;
+    max-width: 18vw
 }
 
 .sidebar-module-inset {
@@ -234,7 +285,7 @@ h6, .h6 {
 .blog-post-title {
     margin-bottom: 5px;
     font-size: 30px;
-    font-family: 'Marker';
+    font-family: 'Monoton';
 }
 
 .blog-post-meta {
@@ -323,20 +374,32 @@ nav ul {
     list-style: none;
 }
 
-    nav ul li {
-        float: left;
-    }
+nav ul li {
+    float: left;
+}
 
-        nav ul li a {
-            display: block;
-            margin-right: 20px;
-            width: 140px;
-            font-size: 18px;
-            line-height: 44px;
-            text-align: center;
-            text-decoration: none;
-            color: black;
-        }
+.nav-options {
+    font-size: 24px !important;
+    font-family: PoorStory;
+    text-align: center;
+    text-decoration: none;
+    padding: 0;
+    height: 100%;
+    line-height: 44px;
+    padding: 0 16px !important;
+}
+
+nav ul li a {
+    display: block;
+    margin-right: 20px;
+    width: 140px;
+    color: black;
+    font-size: 24px;
+    line-height: 44px;
+    font-family: PoorStory;
+    text-align: center;
+    text-decoration: none;
+}
 
             nav ul li a:hover {
                 color: black;

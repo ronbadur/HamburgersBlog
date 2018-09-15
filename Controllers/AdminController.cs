@@ -20,7 +20,7 @@ namespace HamburgersBlog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(string username, string password)
         {
-            var isAdmin = username == "liza" && password == "1234";
+            var isAdmin = username == "brr" && password == "1234";
             if (isAdmin)
             {
                 FormsAuthentication.SetAuthCookie("Admin", false);
