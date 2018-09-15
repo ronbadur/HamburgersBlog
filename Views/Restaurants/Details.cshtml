@@ -16,6 +16,20 @@
             <p>Name: @Html.DisplayFor(model => model.Name)</p>
             <p>Location: @Html.DisplayFor(model => model.Location)</p>
             <p>Rate: @Html.DisplayFor(model => model.Rate) Stars</p>
+            <div class="compatible">
+                @if (@Model.IsVeganFriendly)
+                {
+                    <img title="Vegan Friendly" class="compatible-image" src="~/Media/images/vegeterian.png" />
+                }
+                @if (@Model.IsKosher)
+                {
+                    <img title="Is Kosher" class="compatible-image" src="~/Media/images/kosher.png" />
+                }
+                @if (@Model.IsParkingAvailable)
+                {
+                    <img title="Close Parking Avilable" class="compatible-image" src="~/Media/images/parking.png" />
+                }
+            </div>
         </div>
     </div>
 </div>
