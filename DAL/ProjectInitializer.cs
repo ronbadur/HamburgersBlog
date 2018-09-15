@@ -217,7 +217,7 @@ namespace HamburgersBlog.DAL
                 {
                     RestaurantId=2,
                     Location="Rishon Lezion",
-                    Name="SuSu & Sons",
+                    Name="SuSu And Sons",
                     Rate=3.0,
                     IsKosher=true,
                     IsParkingAvailable=true,
