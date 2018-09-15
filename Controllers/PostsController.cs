@@ -38,7 +38,7 @@ namespace HamburgersBlog.Controllers
             int princessId = post.Princess.PrincessID;
             string princessName = db.Princesses.First(p => p.PrincessID == princessId).Name;
             Dictionary<string, int> counterDictionary = (Dictionary<string, int>)Session["counterDictionary"];
-            if (counterDictionary is null)
+            if (counterDictionary == null)
             {
                 counterDictionary = new Dictionary<string, int>();
             }
