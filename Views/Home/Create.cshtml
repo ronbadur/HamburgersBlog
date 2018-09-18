@@ -35,7 +35,7 @@
             <div class="display-in-row">
                 <label>Princess</label>
                 @Html.DropDownList("PrincessID",
-                    new SelectList((IEnumerable<HamburgersBlog.Models.Princess>)ViewData["princessesSelectable"], "PrincessID", "Name"), new { @class = "btn btn-default" })
+                    new SelectList((IEnumerable<HamburgersBlog.Models.Princess>)ViewData["restaurantsSelectable"], "PrincessID", "Name"), new { @class = "btn btn-default" })
 
 
                 @Html.ValidationMessageFor(model => model.Princess, "", new { @class = "text-danger" })

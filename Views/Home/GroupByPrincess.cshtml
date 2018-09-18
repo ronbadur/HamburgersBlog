@@ -36,7 +36,7 @@
         var g = svg.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.json("/Home/GroupByPrincessData", function (data) {
+        d3.json("/Home/GroupByRestaurantData", function (data) {
             x.domain(data.map(function (d) { return d.PrincessName; }));
             y.domain([0, d3.max(data, function (d) { return d.TotalPosts; })]);
 
@@ -71,7 +71,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PrincessName)
+            @Html.DisplayNameFor(model => model.RestaurantName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalPosts)
@@ -81,7 +81,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.PrincessName)
+                @Html.DisplayFor(modelItem => item.RestaurantName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TotalPosts)

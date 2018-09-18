@@ -15,20 +15,20 @@ namespace HamburgersBlog.Models
         [Required]
         public string AuthorName { get; set; }
         [Required]
-        public int PrincessID { get; set; }
+        public int RestaurantID { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime Date { get; set; }
         public string Content { get; set; }
 
-        public virtual Princess Princess { get; set; }
+        public virtual Restaurant Restaurant { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
     }
 
     public class GroupByPrincessModel
     {
-        public int PrincessID { get; set; }
-        public string PrincessName { get; set; }
+        public int RestaurantID { get; set; }
+        public string RestaurantName { get; set; }
         public int TotalPosts { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace HamburgersBlog.Controllers
         public ActionResult Add(int ResturantId)
         {
             var newReview = new Review();
-            newReview.RestaurantId = ResturantId; // this will be sent from the ArticleDetails View, hold on :).
+            newReview.RestaurantID = ResturantId; // this will be sent from the ArticleDetails View, hold on :).
 
             return PartialView(newReview);
         }

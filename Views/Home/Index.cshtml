@@ -55,7 +55,7 @@
     <hr />
     <div class="container row">
         <div class="list-inline buttons">
-            @using (Html.BeginForm("GroupByPrincess", "Home"))
+            @using (Html.BeginForm("GroupByRestaurant", "Home"))
             {
                 <input class="btn btn-lg btn-stats" type="submit" value="Posts Stats" />
                 <p class="btn btn-lg btn-add-blog" href="#" role="button">@Html.ActionLink("Add Post", "Create", null, new { @style = "color: #FF8A80;" })</p>
@@ -79,7 +79,7 @@
         <div class="blog-post-meta">@Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.Date))</div>
         <p>@Html.DisplayFor(modelItem => item.Content)</p>
 
-        <footer class="blockquote-footer">@Html.DisplayFor(modelItem => item.AuthorName), <cite>@Html.DisplayFor(modelItem => item.Princess.Name)</cite></footer>
+        <footer class="blockquote-footer">@Html.DisplayFor(modelItem => item.AuthorName), <cite>@Html.DisplayFor(modelItem => item.Restaurant.Name)</cite></footer>
         @{ if (Request.IsAuthenticated)
             {
                 <div>

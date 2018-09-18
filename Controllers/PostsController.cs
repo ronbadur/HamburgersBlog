@@ -34,21 +34,21 @@ namespace HamburgersBlog.Controllers
                 return HttpNotFound();
             }
 
-            // Incerment the counter for this princess
-            int princessId = post.Princess.PrincessID;
-            string princessName = db.Princesses.First(p => p.PrincessID == princessId).Name;
+            // Incerment the counter for this restaurant
+            int restaurantId = post.Restaurant.RestaurantID;
+            string restaurantName = db.Restaurants.First(restaurant => restaurant.RestaurantID == restaurantId).Name;
             Dictionary<string, int> counterDictionary = (Dictionary<string, int>)Session["counterDictionary"];
             if (counterDictionary == null)
             {
                 counterDictionary = new Dictionary<string, int>();
             }
-            if (counterDictionary.ContainsKey(princessName))
+            if (counterDictionary.ContainsKey(restaurantName))
             {
-                counterDictionary[princessName]++;
+                counterDictionary[restaurantName]++;
             }
             else
             {
-                counterDictionary.Add(princessName, 1);
+                counterDictionary.Add(restaurantName, 1);
             }
             Session["counterDictionary"] = counterDictionary;
 
@@ -58,8 +58,8 @@ namespace HamburgersBlog.Controllers
         // GET: Posts/Create
         public ActionResult Create()
         {
-            var allPrincesses = db.Princesses;
-            this.ViewData["princessesSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allPrincesses;
+            var allRestaurants = db.Restaurants;
+            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allRestaurants;
             return View();
         }
 
@@ -79,7 +79,7 @@ namespace HamburgersBlog.Controllers
             }
 
             var allPrincesses = db.Princesses;
-            this.ViewData["princessesSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allPrincesses;
+            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allPrincesses;
             return View(post);
         }
 
@@ -97,7 +97,7 @@ namespace HamburgersBlog.Controllers
             }
 
             var allPrincesses = db.Princesses;
-            this.ViewData["princessesSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allPrincesses;
+            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allPrincesses;
             return View(post);
         }
 
@@ -116,7 +116,7 @@ namespace HamburgersBlog.Controllers
                 return RedirectToAction("Index");
             }
             var allPrincesses = db.Princesses;
-            this.ViewData["princessesSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allPrincesses;
+            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allPrincesses;
             return View(post);
         }
 
@@ -148,48 +148,54 @@ namespace HamburgersBlog.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Posts
-        public ActionResult Filter(string princessRoyaltyType, string authorName, string princessName)
+        // POST: Posts/Filter
+        public ActionResult Filter(string area, string authorName, string restaurantName)
         {
             var results = db.Posts.AsQueryable();
-            KingdomType royaltyType;
-            if (!string.IsNullOrEmpty(princessName))
+            Area areaE;
+
+            if (!string.IsNullOrEmpty(restaurantName))
             {
                 results = from post in db.Posts
-                          join princess in db.Princesses on post.PrincessID equals princess.PrincessID
-                          where princess.Name == princessName
+                          join restaurant in db.Restaurants on post.RestaurantID equals restaurant.RestaurantID
+                          where restaurant.Name == restaurantName
                           select post;
             }
-            if (!string.IsNullOrEmpty(princessRoyaltyType) && Enum.TryParse(princessRoyaltyType, out royaltyType))
+
+            if (!string.IsNullOrEmpty(area) && Enum.TryParse(area, out areaE))
             {
-                results = results.Where(p => p.Princess.RoyaltyType == royaltyType);
+                results = results.Where(post => post.Restaurant.Area == areaE);
             }
+
             if (!string.IsNullOrEmpty(authorName))
             {
-                results = results.Where(p => p.AuthorName == authorName);
+                results = results.Where(post => post.AuthorName.ToLower().IndexOf(authorName.ToLower()) > -1);
             }
+
+
             return View("Index", results.ToList());
         }
 
-        public ActionResult GroupByPrincess()
+
+        public ActionResult GroupByRestaurant()
         {
             // Group by and join
             var totalPosts = from post in db.Posts
-                             group post by post.PrincessID into g
-                             join princess in db.Princesses on g.Key equals princess.PrincessID
-                             select new GroupByPrincessModel() { PrincessName = princess.Name, TotalPosts = g.Sum(p => 1) };
+                             group post by post.RestaurantID into g
+                             join restaurant in db.Restaurants on g.Key equals restaurant.RestaurantID
+                             select new GroupByPrincessModel() { RestaurantName = restaurant.Name, TotalPosts = g.Sum(p => 1) };
 
             return View(totalPosts.ToList());
         }
 
         [HttpGet]
-        public ActionResult GroupByPrincessData()
+        public ActionResult GroupByRestaurantData()
         {
             // Group by and join
             var totalPosts = from post in db.Posts
-                             group post by post.PrincessID into g
-                             join princess in db.Princesses on g.Key equals princess.PrincessID
-                             select new GroupByPrincessModel() { PrincessName = princess.Name, TotalPosts = g.Sum(p => 1) };
+                             group post by post.RestaurantID into g
+                             join restaurant in db.Restaurants on g.Key equals restaurant.RestaurantID
+                             select new GroupByPrincessModel() { RestaurantName = restaurant.Name, TotalPosts = g.Sum(p => 1) };
 
             return Json(totalPosts.ToList(), JsonRequestBehavior.AllowGet);
         }
@@ -203,7 +209,7 @@ namespace HamburgersBlog.Controllers
                 int postId = Int32.Parse(currentPostId);
                 int priId = Int32.Parse(princessId);
                 var alikePost = (from post in db.Posts
-                                 where post.PostID != postId && post.PrincessID == priId
+                                 where post.PostID != postId && post.RestaurantID == priId
                                  select post.PostID).SingleOrDefault();
                 if (alikePost != 0)
                 {
