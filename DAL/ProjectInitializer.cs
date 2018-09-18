@@ -134,52 +134,13 @@ namespace HamburgersBlog.DAL
                 },
             };
 
-            var restaurants = new List<Restaurant>
-            {
-                new Restaurant
-                {
-                    RestaurantID=1,
-                    Location="Tel Aviv",
-                    Name="Vitrina",
-                    Rate=5.0,
-                    IsKosher=false,
-                    IsParkingAvailable=false,
-                    IsVeganFriendly=true,
-                    Area=Area.Hadarom,
-                },
-                new Restaurant
-                {
-                    RestaurantID=2,
-                    Location="Rishon Lezion",
-                    Name="SuSu And Sons",
-                    Rate=3.0,
-                    IsKosher=true,
-                    IsParkingAvailable=true,
-                    IsVeganFriendly=false,
-                    Area=Area.Hamerkaz,
-                },
-                new Restaurant
-                {
-                    RestaurantID=3,
-                    Location="Netanya",
-                    Name="Humongous",
-                    Rate=4.0,
-                    IsKosher =true,
-                    IsParkingAvailable=true,
-                    IsVeganFriendly=true,
-                    Area=Area.Hadarom,
-                },
-            };
-            restaurants.ForEach(r => context.Restaurants.Add(r));
-            context.SaveChanges();
-
             var hamburgers = new List<Hamburger>
             {
                 new Hamburger
                 {
                     HamburgerID=1,
-                    Name="Mexican Burger",
-                    Description="very spicy",
+                    Name="Cheesy Bacon",
+                    Description="Tons of Cheese and Bacon",
                     Price=55,
                 },
                 new Hamburger
@@ -196,8 +157,150 @@ namespace HamburgersBlog.DAL
                     Description="Classic burger with cheese and a love :)",
                     Price=60,
                 },
+                new Hamburger
+                {
+                    HamburgerID=4,
+                    Name="Thailand",
+                    Description="Rice Pasta and Pinapple",
+                    Price=60,
+                },
+                new Hamburger
+                {
+                    HamburgerID=5,
+                    Name="Fini",
+                    Description="Maple Sirup and Bacon!",
+                    Price=60,
+                },
+                new Hamburger
+                {
+                    HamburgerID=6,
+                    Name="Sweet Eggs",
+                    Description="Sweet onion jam and eggs",
+                    Price=60,
+                },
+                new Hamburger
+                {
+                    HamburgerID=7,
+                    Name="Sweet Crabs",
+                    Description="Sweet wine marinade with crabs",
+                    Price=60,
+                },
+                new Hamburger
+                {
+                    HamburgerID=8,
+                    Name="Blue and Smoked",
+                    Description="Blue cheese, Bacon, Smoked Onion",
+                    Price=60,
+                },
+                new Hamburger
+                {
+                    HamburgerID=9,
+                    Name="Royal with Cheese",
+                    Description="Hot Cheese FONDU with Bacon!",
+                    Price=60,
+                },
             };
             hamburgers.ForEach(h => context.Hamburgers.Add(h));
+            context.SaveChanges();
+
+            var restaurants = new List<Restaurant>
+            {
+                new Restaurant
+                {
+                    RestaurantID=1,
+                    Location="Tel Aviv",
+                    Name="Vitrina",
+                    Rate=5,
+                    IsKosher=false,
+                    IsParkingAvailable=false,
+                    IsVeganFriendly=true,
+                    Area=Area.Hadarom,
+                    Hamburgers=new List<Hamburger>{hamburgers[1], hamburgers[2]}
+                },
+                new Restaurant
+                {
+                    RestaurantID=2,
+                    Location="Rishon Lezion",
+                    Name="SuSu And Sons",
+                    Rate=2,
+                    IsKosher=true,
+                    IsParkingAvailable=true,
+                    IsVeganFriendly=false,
+                    Area=Area.Hamerkaz,
+                },
+                new Restaurant
+                {
+                    RestaurantID=3,
+                    Location="Netanya",
+                    Name="Humongous",
+                    Rate=4,
+                    IsKosher =false,
+                    IsParkingAvailable=true,
+                    IsVeganFriendly=true,
+                    Area=Area.Hadarom,
+                    Hamburgers=new List<Hamburger>{hamburgers[3], hamburgers[4]}
+                },
+                new Restaurant
+                {
+                    RestaurantID=4,
+                    Location="Tel Aviv",
+                    Name="Prozdor",
+                    Rate=5,
+                    IsKosher=false,
+                    IsParkingAvailable=false,
+                    IsVeganFriendly=true,
+                    Area=Area.Hadarom,
+                    Hamburgers=new List<Hamburger>{hamburgers[7], hamburgers[8]}
+                },
+                new Restaurant
+                {
+                    RestaurantID=5,
+                    Location="Tel Aviv",
+                    Name="Port19",
+                    Rate=3,
+                    IsKosher=false,
+                    IsParkingAvailable=true,
+                    IsVeganFriendly=false,
+                    Area=Area.Hadarom,
+                    Hamburgers=new List<Hamburger>{hamburgers[6]}
+                },
+                new Restaurant
+                {
+                    RestaurantID=6,
+                    Location="Rishon Letzion",
+                    Name="BBB",
+                    Rate=4,
+                    IsKosher=false,
+                    IsParkingAvailable=true,
+                    IsVeganFriendly=true,
+                    Area=Area.Hadarom,
+                    Hamburgers=new List<Hamburger>{hamburgers[0]}
+                },
+                new Restaurant
+                {
+                    RestaurantID=7,
+                    Location="Holon",
+                    Name="Gordos",
+                    Rate=2,
+                    IsKosher=false,
+                    IsParkingAvailable=true,
+                    IsVeganFriendly=true,
+                    Area=Area.Hadarom,
+                },
+                new Restaurant
+                {
+                    RestaurantID=8,
+                    Location="Rishon Letzion",
+                    Name="Kabana",
+                    Rate=1,
+                    IsKosher=false,
+                    IsParkingAvailable=true,
+                    IsVeganFriendly=true,
+                    Area=Area.Hadarom,
+                    Hamburgers=new List<Hamburger>{hamburgers[5]}
+                },
+            };
+            restaurants.ForEach(r => context.Restaurants.Add(r));
             context.SaveChanges();
 
             var sideDishes = new List<SideDish>
@@ -272,43 +375,27 @@ namespace HamburgersBlog.DAL
             {
                 new Post {
                     PostID = 1,
-                    Title = "Why Moana Is The Best Disney Princess",
-                    AuthorName = "Shahar Hacohen",
+                    Title = "Why Vetrina is the BEST Burger Ever Made!",
+                    AuthorName = "Bar Goldinfeld",
                     Date=new DateTime(2018, 5, 9),
-                    Content="She is a strong, independent woman who don't need no man",
+                    Content="Cuz. it's made with love!",
                     RestaurantID=restaurants[0].RestaurantID,
                 },
                 new Post  {
                     PostID = 2,
-                    Title = "I Wish I Was a Disney Princess",
-                    AuthorName="Shani Hollander",
+                    Title = "I Wish I Had My Own Restaurant - Just Like Kabana",
+                    AuthorName="Ron Badur",
                     Date=new DateTime(2018,5,2),
-                    Content="I wish I could be a Disney princess so I could have furniture as my only friends",
-                    RestaurantID=restaurants[1].RestaurantID,
+                    Content="Courage is needed for that mission! There are so many unsuccessful Burgers",
+                    RestaurantID=restaurants[7].RestaurantID,
                 },
                 new Post  {
                     PostID = 3,
-                    Title = "The Truth About Snow White",
-                    AuthorName="Liza Gulitski",
+                    Title = "The Truth About Susu and Son",
+                    AuthorName="Roee Rokah",
                     Date=new DateTime(2018,4,30),
-                    Content="She got no swag",
+                    Content="Jesus so much HYPE around it, but let's face it - it's a bad Burger.",
                     RestaurantID=restaurants[1].RestaurantID,
-                },
-                new Post  {
-                    PostID = 4,
-                    Title = "The Sleeping Beauty Conspiracy",
-                    AuthorName="Guest Author",
-                    Date=new DateTime(2018,4,26),
-                    Content="She was awake the whole time",
-                    RestaurantID=restaurants[0].RestaurantID,
-                },
-                new Post  {
-                    PostID = 5,
-                    Title = "What Disney Didn't Want You To Know",
-                    AuthorName="Shani Hollander",
-                    Date=new DateTime(2018,4,21),
-                    Content="Snow white is actually a dude",
-                    RestaurantID=restaurants[2].RestaurantID,
                 }
             };
 

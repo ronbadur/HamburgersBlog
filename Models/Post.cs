@@ -25,7 +25,7 @@ namespace HamburgersBlog.Models
         public virtual ICollection<Comment> Comments { get; set; }
     }
 
-    public class GroupByPrincessModel
+    public class GroupByRestaurantModel
     {
         public int RestaurantID { get; set; }
         public string RestaurantName { get; set; }

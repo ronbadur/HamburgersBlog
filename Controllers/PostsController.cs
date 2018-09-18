@@ -149,7 +149,7 @@ namespace HamburgersBlog.Controllers
         }
 
         // POST: Posts/Filter
-        public ActionResult Filter(string area, string authorName, string restaurantName)
+        public ActionResult Filter(string area, string restaurantName, string authorName)
         {
             var results = db.Posts.AsQueryable();
             Area areaE;
@@ -158,7 +158,7 @@ namespace HamburgersBlog.Controllers
             {
                 results = from post in db.Posts
                           join restaurant in db.Restaurants on post.RestaurantID equals restaurant.RestaurantID
-                          where restaurant.Name == restaurantName
+                          where restaurant.Name.ToLower().Contains(restaurantName.ToLower())
                           select post;
             }
 
@@ -183,7 +183,7 @@ namespace HamburgersBlog.Controllers
             var totalPosts = from post in db.Posts
                              group post by post.RestaurantID into g
                              join restaurant in db.Restaurants on g.Key equals restaurant.RestaurantID
-                             select new GroupByPrincessModel() { RestaurantName = restaurant.Name, TotalPosts = g.Sum(p => 1) };
+                             select new GroupByRestaurantModel() { RestaurantName = restaurant.Name, TotalPosts = g.Sum(p => 1) };
 
             return View(totalPosts.ToList());
         }
@@ -195,7 +195,7 @@ namespace HamburgersBlog.Controllers
             var totalPosts = from post in db.Posts
                              group post by post.RestaurantID into g
                              join restaurant in db.Restaurants on g.Key equals restaurant.RestaurantID
-                             select new GroupByPrincessModel() { RestaurantName = restaurant.Name, TotalPosts = g.Sum(p => 1) };
+                             select new GroupByRestaurantModel() { RestaurantName = restaurant.Name, TotalPosts = g.Sum(p => 1) };
 
             return Json(totalPosts.ToList(), JsonRequestBehavior.AllowGet);
         }
