@@ -9,7 +9,7 @@ namespace HamburgersBlog.Models
     public class Review
     {
         [Key]
-        public int ReviewId { get; set; }
+        public int ReviewID { get; set; }
         public int RestaurantId{ get; set; }
         [Required]
         public string Title { get; set; }

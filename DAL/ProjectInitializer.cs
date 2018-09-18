@@ -204,7 +204,7 @@ namespace HamburgersBlog.DAL
             {
                 new Restaurant
                 {
-                    RestaurantId=1,
+                    RestaurantID=1,
                     Location="Tel Aviv",
                     Name="Vitrina",
                     Rate=5.0,
@@ -215,7 +215,7 @@ namespace HamburgersBlog.DAL
                 },
                 new Restaurant
                 {
-                    RestaurantId=2,
+                    RestaurantID=2,
                     Location="Rishon Lezion",
                     Name="SuSu And Sons",
                     Rate=3.0,
@@ -226,7 +226,7 @@ namespace HamburgersBlog.DAL
                 },
                 new Restaurant
                 {
-                    RestaurantId=3,
+                    RestaurantID=3,
                     Location="Netanya",
                     Name="Humongous",
                     Rate=4.0,
@@ -270,21 +270,21 @@ namespace HamburgersBlog.DAL
             {
                 new SideDish
                 {
-                    SideDishId=1,
+                    SideDishID=1,
                     Name="Chips",
                     Description="a regular chips",
                     Price=12,
                 },
                 new SideDish
                 {
-                    SideDishId=2,
+                    SideDishID=2,
                     Name="Sweet Potato Chips",
                     Description="chips that made from sweet potato",
                     Price=15,
                 },
                 new SideDish
                 {
-                    SideDishId=3,
+                    SideDishID=3,
                     Name="Rice",
                     Description="white rice",
                     Price=18,
@@ -299,7 +299,7 @@ namespace HamburgersBlog.DAL
             {
                 new Review
                 {
-                    ReviewId=1,
+                    ReviewID=1,
                     Title="very tasty",
                     AuthorName="Shlomi",
                     Content="best burger in town",
@@ -307,7 +307,7 @@ namespace HamburgersBlog.DAL
                 },
                 new Review
                 {
-                    ReviewId=2,
+                    ReviewID=2,
                     Title="yum yum",
                     AuthorName="Itzik a gadol",
                     Content="Wow, what a burger!",
@@ -315,7 +315,7 @@ namespace HamburgersBlog.DAL
                 },
                 new Review
                 {
-                    ReviewId=2,
+                    ReviewID=2,
                     Title="Too  expensive",
                     AuthorName="Young Itzik",
                     Content="I like the burger but the price is too high!",
@@ -323,7 +323,7 @@ namespace HamburgersBlog.DAL
                 },
                 new Review
                 {
-                    ReviewId=3,
+                    ReviewID=3,
                     Title="WoW",
                     AuthorName="Noa",
                     Content="There is no doubt that this burger in my top 5",

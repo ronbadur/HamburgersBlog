@@ -14,7 +14,7 @@ namespace HamburgersBlog.Models
     public class Restaurant
     {
         [Key]
-        public int RestaurantId { get; set; }
+        public int RestaurantID { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

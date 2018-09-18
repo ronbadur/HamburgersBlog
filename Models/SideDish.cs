@@ -9,7 +9,7 @@ namespace HamburgersBlog.Models
     public class SideDish
     {
         [Key]
-        public int SideDishId { get; set; }
+        public int SideDishID { get; set; }
         public int Price { get; set; }
         [Required]
         public string Name { get; set; }

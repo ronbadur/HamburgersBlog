@@ -805,6 +805,17 @@ footer {
     width: 100%;
 }
 
+.add-review {
+    background-color: black;
+    color: white;
+    margin-right: 50px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+}
+
 
 
 /*Cards*/

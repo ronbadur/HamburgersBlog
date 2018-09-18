@@ -48,13 +48,13 @@
                     </div>
                     <div class="card__clock-info">
                         <p class="card__time restaurant-details-button">
-                            @Html.ActionLink("More Details", "Details", new { id = item.RestaurantId }, new { @style = "background-color: #4CAF50; border: none; color: white; padding: 5px 12px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;" })
+                            @Html.ActionLink("More Details", "Details", new { id = item.RestaurantID }, new { @style = "background-color: #4CAF50; border: none; color: white; padding: 5px 12px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;" })
                         </p>
                     </div>
 
                 </div>
                 <div class="card__img" style="background-image: url('/Media/images/@(item.Name.ToLower()).jpg')"></div>
-                <a href="/Restaurants/Details/@item.RestaurantId" class="card_link">
+                <a href="/Restaurants/Details/@item.RestaurantID" class="card_link">
                     <div class="card__img--hover" style="background-image: url('/Media/images/@(item.Name.ToLower()).jpg')"></div>
                 </a>
                 <div class="card__info">

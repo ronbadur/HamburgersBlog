@@ -44,7 +44,8 @@
         <p class="review-author-name">@item.AuthorName</p>
     }
 </div>
+<div class="buttons-container">
+    <a class="btn btn-lg add-review" href="@Url.Action("../Reviews/Create", "Add", new { RestaurantId = Model.RestaurantID })" role="button">Add Review</a>
+    <a class="btn btn-lg add-review" href="@Url.Action("Index")">Back</a>
+</div>
 
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
