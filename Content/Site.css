@@ -299,7 +299,7 @@ aside.col-sm-2 {
  */
 
 .blog-footer {
-    padding: 40px 0;
+    padding: 10px 0;
     color: #999;
     text-align: center;
     background-color: #f9f9f9;
@@ -748,8 +748,8 @@ footer {
 }
 
 .compatible-image {
-    width: 2vh;
-    height: 2vh;
+    width: 5vh;
+    height: 5vh;
 }
 
 .restaurant-rate {
