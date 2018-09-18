@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -37,6 +38,27 @@ namespace HamburgersBlog.Controllers
             }
 
             return View(restaurant);
+        }
+
+        // POST: Restaurants/Filter
+        public ActionResult Filter(string area, string restaurantName, int greaterRateThan)
+        {
+            var results = db.Restaurants.AsQueryable();
+            Area areaE;
+
+            if (!string.IsNullOrEmpty(restaurantName))
+            {
+                results = results.Where(restaurant => restaurant.Name.ToLower().IndexOf(restaurantName.ToLower()) > -1);
+            }
+
+            if (!string.IsNullOrEmpty(area) && Enum.TryParse(area, out areaE))
+            {
+                results = results.Where(restaurant => restaurant.Area == areaE);
+            }
+
+            results = results.Where(p => p.Rate > greaterRateThan);
+
+            return View("Index", results.ToList());
         }
     }
 }

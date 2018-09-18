@@ -4,38 +4,25 @@
 }
 <h2>Restaurants</h2>
 
+@using (Html.BeginForm("Filter", "Restaurants", FormMethod.Post, new { @class = "form-inline"}))
+{
+    <h3>Filter Restaurants By:</h3>
+    <div class="form-group">
+        @Html.DropDownList("area", EnumHelper.GetSelectList(typeof(HamburgersBlog.Models.Area)), "Choose Area...", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.TextBox("restaurantName", "", new { @class = "form-control", placeholder = "Restaurant Name" })
+    </div>
+
+    <div class="form-group">
+        @Html.TextBox("greaterRateThan", 1, new { @class = "form-control", @type = "number", max = 5, min = 1, title = "Greater Rate Than", placeholder = "Greater Rate Than" })
+    </div>
+
+    <input class="btn btn-search-posts" type="submit" value="Search" />
+}
+
 <div class="container restaurants">
-    @*@foreach (var item in Model)
-        {
-            <div class="restaurant-card col-sm-3">
-                <div class="restaurant-title">
-                    <div class="restaurant-name">@Html.DisplayFor(modelItem => item.Name)</div>
-                    <div class="compatible">
-                        @if (item.IsVeganFriendly)
-                        {
-                            <img title="Vegan Friendly" class="compatible-image" src="~/Media/images/vegeterian.png" />
-                        }
-                        @if (item.IsKosher)
-                        {
-                            <img title="Is Kosher" class="compatible-image" src="~/Media/images/kosher.png" />
-                        }
-                        @if (item.IsParkingAvailable)
-                        {
-                            <img title="Close Parking Avilable" class="compatible-image" src="~/Media/images/parking.png" />
-                        }
-                    </div>
-                </div>
-                <div class="restaurant-rate">Rate: @Html.DisplayFor(modelItem => item.Rate)</div>
-                <div class="restaurant-image"><img src="/Media/images/@(item.Name.ToLower()).jpg" /></div>
-                <div class="restaurant-location">Location: @Html.DisplayFor(modelItem => item.Location)</div>
-                <p class="restaurant-details-button">
-                    @Html.ActionLink("More Details", "Details", new { id = item.RestaurantId }, new { @style = "text-decoration:none; color: black;" })
-                </p>
-            </div>
-        }*@
-
-    @*.card--1 .card__img, .card--1 .card__img--hover*@
-
     <section class="cards">
         @foreach (var item in Model)
         {
@@ -48,13 +35,13 @@
                     </div>
                     <div class="card__clock-info">
                         <p class="card__time restaurant-details-button">
-                            @Html.ActionLink("More Details", "Details", new { id = item.RestaurantId }, new { @style = "background-color: #4CAF50; border: none; color: white; padding: 5px 12px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;" })
+                            @Html.ActionLink("More Details", "Details", new { id = item.RestaurantID }, new { @style = "background-color: #4CAF50; border: none; color: white; padding: 5px 12px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;" })
                         </p>
                     </div>
 
                 </div>
                 <div class="card__img" style="background-image: url('/Media/images/@(item.Name.ToLower()).jpg')"></div>
-                <a href="/Restaurants/Details/@item.RestaurantId" class="card_link">
+                <a href="/Restaurants/Details/@item.RestaurantID" class="card_link">
                     <div class="card__img--hover" style="background-image: url('/Media/images/@(item.Name.ToLower()).jpg')"></div>
                 </a>
                 <div class="card__info">
