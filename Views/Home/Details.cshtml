@@ -4,7 +4,7 @@
     $(document).ready(function () {
         var token = $('[name=__RequestVerificationToken]').val();
 		var bodyData = {
-			princessId: "@Model.Princess.PrincessID",
+			princessId: "@Model.Restaurant.RestaurantID",
             currentPostId: "@Model.PostID"
         };
         bodyData['__RequestVerificationToken'] = token;
@@ -40,8 +40,8 @@
     <div class="blog-post-meta">@Html.DisplayFor(model => model.Date)</div>
     <p>@Html.DisplayFor(model => model.Content)</p>
 
-    <a id="morePosts">Want more posts of @Html.DisplayFor(model => model.Princess.Name)? click here</a>
-    <footer class="blockquote-footer">@Html.DisplayFor(model => model.AuthorName), <cite>@Html.DisplayFor(model => model.Princess.Name)</cite></footer>
+    <a id="morePosts">Want more posts of @Html.DisplayFor(model => model.Restaurant.Name)? click here</a>
+    <footer class="blockquote-footer">@Html.DisplayFor(model => model.AuthorName), <cite>@Html.DisplayFor(model => model.Restaurant.Name)</cite></footer>
 </div>
 
 <div class="container">

@@ -121,9 +121,19 @@
     <hr />
     @foreach (var item in Model.Reviews)
     {
-        <p class="review-title">@item.Title</p>
-        <p class="review-content">@item.Content</p>
-        <p class="review-author-name">@item.AuthorName</p>
+        <div>
+            <p class="review-title">@item.Title</p>
+            <p class="review-content">@item.Content</p>
+            <p class="review-author-name">@item.AuthorName</p>
+            @{ if (Request.IsAuthenticated)
+                {
+                    <div>
+                        @Html.ActionLink("Edit", "../Reviews/Edit", new { id = item.ReviewID }) |
+                        @Html.ActionLink("Delete", "../Reviews/Delete", new { id = item.ReviewID })
+                    </div>
+                }
+            }
+        </div>
     }
 </div>
 <div class="buttons-container">

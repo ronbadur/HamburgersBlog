@@ -625,9 +625,7 @@ aside {
 =COMMENT FORM
 ------------------------------*/
 form {
-    margin-top: 21px;
-    padding-top: 22px;
-    border-top: 1px solid #d7d7d7;
+    margin-top: 10px;
 }
 
     form p {

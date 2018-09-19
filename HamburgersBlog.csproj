@@ -317,11 +317,6 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Posts\Index.cshtml" />
-    <Content Include="Views\Posts\Create.cshtml" />
-    <Content Include="Views\Posts\Delete.cshtml" />
-    <Content Include="Views\Posts\Edit.cshtml" />
-    <Content Include="Views\Posts\Details.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Comments\Create.cshtml" />
     <Content Include="Views\Comments\Delete.cshtml" />
@@ -335,17 +330,16 @@
     <Content Include="Views\Princesses\Edit.cshtml" />
     <Content Include="Views\Princesses\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Comment.cshtml" />
-    <Content Include="Views\Posts\GroupByPrincess.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Error.cshtml" />
     <Content Include="Views\Admin\Tweet.cshtml" />
     <Content Include="Views\Maps\Index.cshtml" />
     <Content Include="Views\Hamburgers\Index.cshtml" />
     <Content Include="Views\SideDishes\Index.cshtml" />
-    <Content Include="Views\Home\Create.cshtml" />
-    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Posts\Create.cshtml" />
+    <Content Include="Views\Posts\Delete.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Posts\Edit.cshtml" />
     <Content Include="Views\Home\GroupByPrincess.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Restaurants\Details.cshtml" />
@@ -353,6 +347,9 @@
     <Content Include="Views\Locations\Index.cshtml" />
     <Content Include="Views\Reviews\Create.cshtml" />
     <Content Include="Views\Reviews\Add.cshtml" />
+    <Content Include="Views\Home\GroupByRestaurant.cshtml" />
+    <Content Include="Views\Reviews\Edit.cshtml" />
+    <Content Include="Views\Reviews\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -59,7 +59,7 @@ namespace HamburgersBlog.Controllers
         public ActionResult Create()
         {
             var allRestaurants = db.Restaurants;
-            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allRestaurants;
+            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Restaurant>)allRestaurants;
             return View();
         }
 
@@ -68,18 +68,15 @@ namespace HamburgersBlog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostID,Title,AuthorName,PrincessID,Content")] Post post)
+        public ActionResult Create([Bind(Include = "PostID,Title,AuthorName,RestaurantID,Content")] Post post)
         {
             post.Date = DateTime.Now;
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 db.Posts.Add(post);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Home/Index");
             }
-
-            var allPrincesses = db.Princesses;
-            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allPrincesses;
             return View(post);
         }
 
@@ -96,8 +93,8 @@ namespace HamburgersBlog.Controllers
                 return HttpNotFound();
             }
 
-            var allPrincesses = db.Princesses;
-            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allPrincesses;
+            var allRestaurants = db.Restaurants;
+            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Restaurant>)allRestaurants;
             return View(post);
         }
 
@@ -107,16 +104,17 @@ namespace HamburgersBlog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Users = "Admin")]
-        public ActionResult Edit([Bind(Include = "PostID,Title,AuthorName,PrincessID,Princess,Date,Content")] Post post)
+        public ActionResult Edit([Bind(Include = "PostID,Title,AuthorName,RestaurantID,Restaurant,Date,Content")] Post post)
         {
             if (ModelState.IsValid)
             {
+                post.Date = DateTime.Now;
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Home/Index");
             }
-            var allPrincesses = db.Princesses;
-            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Princess>)allPrincesses;
+            var allRestaurants = db.Restaurants;
+            this.ViewData["restaurantsSelectable"] = (IEnumerable<HamburgersBlog.Models.Restaurant>)allRestaurants;
             return View(post);
         }
 
@@ -145,7 +143,7 @@ namespace HamburgersBlog.Controllers
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("../Home/Index");
         }
 
         // POST: Posts/Filter

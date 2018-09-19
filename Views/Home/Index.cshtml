@@ -49,22 +49,9 @@
         <input class="btn btn-search-posts" type="submit" value="Search" />
     }
 
-    <hr />
-    <div class="container row">
-        <div class="list-inline buttons">
-            @using (Html.BeginForm("GroupByRestaurant", "Home"))
-            {
-                <input class="btn btn-lg btn-stats" type="submit" value="Posts Stats" />
-                <p class="btn btn-lg btn-add-blog" href="#" role="button">@Html.ActionLink("Add Post", "Create", null, new { @style = "color: #FF8A80;" })</p>
-            }
-
-        </div>
-    </div>
-
-
 </div>
 
-
+<h2>Posts</h2>
 <hr />
 
 
@@ -80,10 +67,22 @@
         @{ if (Request.IsAuthenticated)
             {
                 <div>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.PostID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.PostID })
+                    @Html.ActionLink("Edit", "../Posts/Edit", new { id = item.PostID }) |
+                    @Html.ActionLink("Delete", "../Posts/Delete", new { id = item.PostID })
                 </div>
             }
         }
     </div>
 }
+
+<div class="container row">
+    <div class="list-inline buttons">
+        @using (Html.BeginForm("GroupByRestaurant", "Home"))
+            {
+            <a class="btn btn-lg add-review" href="@Url.Action("../Posts/Create")" role="button">Add Post</a>
+            <input class="btn btn-lg btn-stats" type="submit" value="Posts Stats" />          
+        }
+
+    </div>
+</div>
+
