@@ -86,7 +86,7 @@ namespace HamburgersBlog.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentID,PostID,Title,AuthorName,AuthorSiteURL,Content")] Comment comment)
+        public ActionResult Create([Bind(Include = "CommentID,PostID,Title,AuthorName,Content")] Comment comment)
         {
             if (ModelState.IsValid)
             {
@@ -122,7 +122,7 @@ namespace HamburgersBlog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Users = "Admin")]
-        public ActionResult Edit([Bind(Include = "CommentID,PostID,Title,AuthorName,AuthorSiteURL,Content")] Comment comment)
+        public ActionResult Edit([Bind(Include = "CommentID,PostID,Title,AuthorName,Content")] Comment comment)
         {
             if (ModelState.IsValid)
             {

@@ -58,7 +58,7 @@
 @foreach (var item in Model)
 {
     <div class="blog-post">
-        <p class="blog-post-title">@Html.ActionLink(item.Title, "Details", new { id = item.PostID }, new { @style = "text-decoration:none; color: black;" }) </p>
+        <p class="blog-post-title">@Html.ActionLink(item.Title, "../Posts/Details", new { id = item.PostID }, new { @style = "text-decoration:none; color: black;" }) </p>
 
         <div class="blog-post-meta">@Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.Date))</div>
         <p>@Html.DisplayFor(modelItem => item.Content)</p>

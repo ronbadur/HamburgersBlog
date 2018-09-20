@@ -350,6 +350,7 @@
     <Content Include="Views\Home\GroupByRestaurant.cshtml" />
     <Content Include="Views\Reviews\Edit.cshtml" />
     <Content Include="Views\Reviews\Delete.cshtml" />
+    <Content Include="Views\Posts\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
