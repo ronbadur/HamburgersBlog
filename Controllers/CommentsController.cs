@@ -18,6 +18,7 @@ namespace HamburgersBlog.Controllers
 
 
         // GET: Comments
+        [Authorize(Users = "Admin")]
         public ActionResult Index()
         {
             var comments = db.Comments.Include(c => c.Post);

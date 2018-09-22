@@ -12,10 +12,10 @@ namespace HamburgersBlog
 {
     public class Startup
     {
-        private const string TWITTER_CONSUMER_ID = "pv8F32sC7mOIpYwt8Mbx4bHc4";
-        private const string TWITTER_CONSUMER_SECRET = "BS3hZpBsDg0aoRTWMTu5fWDrGEl6XStEMb0BdIW482rbZj08Qk";
-        private const string TWITTER_ACCESS_TOKEN = "985450562434068482-QnmHOcBhCr6MJ5nEZYkgVeo5lix9OA3";
-        private const string TWITTER_ACCESS_TOKEN_SECRET = "scIBhLzShg2GVKxyibcz8dScM8wiF0F4jKGn09LBRqAry";
+        private const string TWITTER_CONSUMER_ID = "IQOYpID8gcSwS2Ogm3anAhrDZ";
+        private const string TWITTER_CONSUMER_SECRET = "W3Dqh3kBOvJVXckH8qJEwDdnz4QDpeDYluBQhOYXBUdHvTzRVA";
+        private const string TWITTER_ACCESS_TOKEN = "1043517806443200512-ZQBv19QESwj3Xl5dH7gZr5ZrN2JJiM";
+        private const string TWITTER_ACCESS_TOKEN_SECRET = "zzxOWcL6vJzwC4MC3jJq7w0CxXM2dyC53ex1gB4P2ac5q";
 
         public void Configuration(IAppBuilder app)
         {
