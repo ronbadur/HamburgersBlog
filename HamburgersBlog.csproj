@@ -223,21 +223,33 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Media\images\636160264476632234-1903992238_princesses.png" />
-    <Content Include="Media\images\banner.jpg" />
-    <Content Include="Media\images\disney-princess-banner-disney-princess-26937703-2560-650.jpg" />
-    <Content Include="Media\images\disney_princess_banner.jpg" />
-    <Content Include="Media\images\homepage1.png" />
-    <Content Include="Media\images\homepage2.jpg" />
+    <Content Include="Media\images\817988.jpg" />
+    <Content Include="Media\images\bbb.jpg" />
+    <Content Include="Media\images\blue and smoked.jpg" />
+    <Content Include="Media\images\butler burger.jpg" />
+    <Content Include="Media\images\butler cheese burger.jpg" />
+    <Content Include="Media\images\cheesy bacon.jpg" />
+    <Content Include="Media\images\croissant.jpg" />
+    <Content Include="Media\images\fini.jpg" />
+    <Content Include="Media\images\gordos.jpg" />
     <Content Include="Media\images\humongous.jpg" />
-    <Content Include="Media\images\intro_shauli.png" />
+    <Content Include="Media\images\kabana.jpg" />
+    <Content Include="Media\images\kosher.png" />
     <Content Include="Media\images\melted-cheese.jpg" />
     <Content Include="Media\images\melted-cheese.svg" />
+    <Content Include="Media\images\parking.png" />
+    <Content Include="Media\images\port19.jpg" />
+    <Content Include="Media\images\prozdor.jpg" />
+    <Content Include="Media\images\royal with cheese.jpg" />
     <Content Include="Media\images\rss.png" />
-    <Content Include="Media\images\susu-and-sons.png" />
+    <Content Include="Media\images\susu and sons.jpg" />
+    <Content Include="Media\images\susu and sons.png" />
+    <Content Include="Media\images\sweet crabs.jpg" />
+    <Content Include="Media\images\sweet eggs.jpg" />
+    <Content Include="Media\images\thailand.jpg" />
     <Content Include="Media\images\top-burger.svg" />
+    <Content Include="Media\images\vegeterian.png" />
     <Content Include="Media\images\vitrina.jpg" />
-    <Content Include="Media\videos\10SecretFactsAboutDISNEYPrincesses.mp4" />
     <Content Include="Media\videos\videoblocks-plump-girl-overeating-burger-and-drinking-water-while-riding-exercise-bike_sext_n_cwg__PM.mp4" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -275,7 +287,6 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Styles\home_page.css" />
-    <Content Include="Styles\view_comment.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -288,7 +299,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
-    <Compile Include="Controllers\PrincessesController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\SideDishesController.cs" />
@@ -305,7 +315,6 @@
     </Compile>
     <Compile Include="Models\Map.cs" />
     <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\Princess.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -324,16 +333,9 @@
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
     <Content Include="Views\Comments\Add.cshtml" />
-    <Content Include="Views\Princesses\Create.cshtml" />
-    <Content Include="Views\Princesses\Delete.cshtml" />
-    <Content Include="Views\Princesses\Details.cshtml" />
-    <Content Include="Views\Princesses\Edit.cshtml" />
-    <Content Include="Views\Princesses\Index.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Comment.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Error.cshtml" />
     <Content Include="Views\Admin\Tweet.cshtml" />
-    <Content Include="Views\Maps\Index.cshtml" />
     <Content Include="Views\Hamburgers\Index.cshtml" />
     <Content Include="Views\SideDishes\Index.cshtml" />
     <Content Include="Views\Posts\Create.cshtml" />

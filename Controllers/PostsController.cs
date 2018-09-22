@@ -200,12 +200,12 @@ namespace HamburgersBlog.Controllers
 
         // Get Posts/WantMore
         [HttpPost]
-        public ActionResult WantMore(string princessId, string currentPostId)
+        public ActionResult WantMore(string restaurantId, string currentPostId)
         {
             try
             {
                 int postId = Int32.Parse(currentPostId);
-                int priId = Int32.Parse(princessId);
+                int priId = Int32.Parse(restaurantId);
                 var alikePost = (from post in db.Posts
                                  where post.PostID != postId && post.RestaurantID == priId
                                  select post.PostID).SingleOrDefault();

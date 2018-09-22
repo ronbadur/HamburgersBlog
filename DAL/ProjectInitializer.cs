@@ -10,101 +10,6 @@ namespace HamburgersBlog.DAL
     {
         protected override void Seed(ProjectContext context)
         {
-            var princesses = new List<Princess>
-            {
-                new Princess
-                {
-                    PrincessID=1,
-                    Name="Pocahontas",
-                    RoyaltyType=KingdomType.RoyalBlood,
-                    CreationYear=1995,
-                    HairColor=HairColor.Black,
-                    Nationality="Northern Territory, Australia",
-                    MovieName="Pocahontas"
-                },
-                new Princess
-                {
-                    PrincessID=2,
-                    Name="Snow White",
-                    RoyaltyType=KingdomType.RoyalBlood,
-                    CreationYear=1937,
-                    HairColor=HairColor.Black,
-                    Nationality="Germany",
-                    MovieName="Snow White and the Seven Dwarfs"
-                },
-                new Princess
-                {
-                    PrincessID=3,
-                    Name="Cinderella",
-                    RoyaltyType=KingdomType.MarriedToRoyalty,
-                    CreationYear=1950,
-                    HairColor=HairColor.Yellow,
-                    Nationality="France",
-                    MovieName="Cinderella"
-                },
-                 new Princess
-                {
-                    PrincessID=4,
-                    Name="Mulan",
-                    RoyaltyType=KingdomType.NotRoyal,
-                    CreationYear=1998,
-                    HairColor=HairColor.Black,
-                    Nationality="China",
-                    MovieName="Mulan"
-                },
-                 new Princess
-                {
-                    PrincessID=5,
-                    Name="Ariel",
-                    RoyaltyType=KingdomType.RoyalBlood,
-                    CreationYear=1989,
-                    HairColor=HairColor.Red,
-                    Nationality="Atlantic Ocean",
-                    MovieName="The Little Mermaid"
-                },
-                 new Princess
-                {
-                    PrincessID=6,
-                    Name="Esmeralda",
-                    RoyaltyType=KingdomType.NotRoyal,
-                    CreationYear=1996,
-                    HairColor=HairColor.Black,
-                    Nationality="Paris, France",
-                    MovieName="The Hunchback of Notre Dame"
-                },
-                 new Princess
-                {
-                    PrincessID=7,
-                    Name="Elsa",
-                    RoyaltyType=KingdomType.RoyalBlood,
-                    CreationYear=2013,
-                    HairColor=HairColor.Yellow,
-                    Nationality="Norway",
-                    MovieName="Frozen"
-                },
-                 new Princess
-                {
-                    PrincessID=8,
-                    Name="Meg",
-                    RoyaltyType=KingdomType.RoyalBlood,
-                    CreationYear=1997,
-                    HairColor=HairColor.Red,
-                    Nationality="Greece",
-                    MovieName="Hercules"
-                },
-                 new Princess
-                {
-                    PrincessID=9,
-                    Name="Jane",
-                    RoyaltyType=KingdomType.NotRoyal,
-                    CreationYear=1999,
-                    HairColor=HairColor.Red,
-                    Nationality="Africa",
-                    MovieName="Tarzan"
-                },
-            };
-            princesses.ForEach(h => context.Princesses.Add(h));
-            context.SaveChanges();
 
             var comments = new List<Comment>
             {
@@ -404,22 +309,6 @@ namespace HamburgersBlog.DAL
 
             comments.ForEach(c => context.Comments.Add(c));
             context.SaveChanges();
-
-            var maps = new List<Map>();
-
-            for (int i = 0; i < princesses.ToArray().Length; i++)
-            {
-                Map map = new Map
-                {
-                    MapID = princesses[i].PrincessID,
-                    Name = princesses[i].Name,
-                    Address = princesses[i].Nationality,
-                };
-
-                maps.Add(map);
-            }
-            maps.ForEach(m => context.Maps.Add(m));
-            context.SaveChanges();
-        }      
+        }
     }
 }

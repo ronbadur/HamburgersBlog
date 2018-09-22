@@ -12,7 +12,6 @@ namespace HamburgersBlog.DAL
     {
         public ProjectContext() : base("ProjectContext") { }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<Princess> Princesses { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Map> Maps { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }

@@ -26,8 +26,8 @@
         Dictionary<string, int> counterDictionary = (Dictionary<string, int>)Session["counterDictionary"];
         if (counterDictionary != null)
         {
-            string favPrincessName = counterDictionary.FirstOrDefault(x => x.Value == counterDictionary.Values.Max()).Key;
-            <div class="alert alert-success">Like @Html.Raw(favPrincessName)? @Html.ActionLink("click", "Filter", new { princessName = favPrincessName }) for more</div>
+            string favRestaurantName = counterDictionary.FirstOrDefault(x => x.Value == counterDictionary.Values.Max()).Key;
+            <div class="alert alert-success">Like @Html.Raw(favRestaurantName)? @Html.ActionLink("click", "Filter", new { restaurantName = favRestaurantName }) for more</div>
         }
     }
 

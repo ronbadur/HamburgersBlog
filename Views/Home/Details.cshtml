@@ -4,7 +4,7 @@
     $(document).ready(function () {
         var token = $('[name=__RequestVerificationToken]').val();
 		var bodyData = {
-			princessId: "@Model.Restaurant.RestaurantID",
+		    restaurantId: "@Model.Restaurant.RestaurantID",
             currentPostId: "@Model.PostID"
         };
         bodyData['__RequestVerificationToken'] = token;
