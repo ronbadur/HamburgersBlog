@@ -10,9 +10,6 @@
     @Styles.Render("~/Styles/home_page.css")
 </head>
 
-
-
-
 <body>
 
 
@@ -49,6 +46,7 @@
                                     <ul class="dropdown-content">
                                         <li class="nav-link">@Html.ActionLink("Comments", "Index", "Comments")</li>
                                         <li class="nav-link">@Html.ActionLink("Tweet", "TweetPage", "Twitter")</li>
+                                        <li class="nav-link">@Html.ActionLink("Statistics", "GroupByArea", "Restaurants")</li>
                                         <li class="nav-link">@Html.ActionLink("Logout", "Logout", "Admin")</li>
                                     </ul>
                                 </li>
