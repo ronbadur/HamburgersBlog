@@ -41,29 +41,6 @@ namespace HamburgersBlog.Controllers
             return View(comment);
         }
 
-        // POST: Comments/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Add([Bind(Include = "CommentID,PostID,Title,AuthorName,AuthorSiteURL,Content")] Comment comment)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Comments.Add(comment);
-                db.SaveChanges();
-                return Json(new { succeeded = true, commentData = comment });
-                //return Json(comment, JsonRequestBehavior.AllowGet);
-                //return PartialView(comment);
-
-            }
-
-            ViewBag.PostID = new SelectList(db.Posts, "PostID", "Title", comment.PostID);
-            return Json(new { succeeded = false });
-            //return PartialView(comment);
-
-        }
-
 
         // GET: Comments/Create
         public ActionResult Create()
