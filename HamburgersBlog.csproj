@@ -301,14 +301,12 @@
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
-    <Compile Include="Controllers\SideDishesController.cs" />
     <Compile Include="Controllers\TwitterController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="DAL\ProjectInitializer.cs" />
     <Compile Include="Models\Hamburger.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Review.cs" />
-    <Compile Include="Models\SideDish.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -319,7 +317,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -332,12 +332,10 @@
     <Content Include="Views\Comments\Details.cshtml" />
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
-    <Content Include="Views\Comments\Add.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Error.cshtml" />
     <Content Include="Views\Admin\Tweet.cshtml" />
     <Content Include="Views\Hamburgers\Index.cshtml" />
-    <Content Include="Views\SideDishes\Index.cshtml" />
     <Content Include="Views\Posts\Create.cshtml" />
     <Content Include="Views\Posts\Delete.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
@@ -348,11 +346,11 @@
     <Content Include="Views\Restaurants\Index.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
     <Content Include="Views\Reviews\Create.cshtml" />
-    <Content Include="Views\Reviews\Add.cshtml" />
     <Content Include="Views\Home\GroupByRestaurant.cshtml" />
     <Content Include="Views\Reviews\Edit.cshtml" />
     <Content Include="Views\Reviews\Delete.cshtml" />
     <Content Include="Views\Posts\Details.cshtml" />
+    <Content Include="Views\Restaurants\GroupByArea.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

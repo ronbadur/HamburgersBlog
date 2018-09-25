@@ -16,7 +16,6 @@ namespace HamburgersBlog.DAL
         public DbSet<Map> Maps { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<Hamburger> Hamburgers { get; set; }
-        public DbSet<SideDish> SideDishes { get; set; }
         public DbSet<Review> Reviews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

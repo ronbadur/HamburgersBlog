@@ -208,35 +208,6 @@ namespace HamburgersBlog.DAL
             restaurants.ForEach(r => context.Restaurants.Add(r));
             context.SaveChanges();
 
-            var sideDishes = new List<SideDish>
-            {
-                new SideDish
-                {
-                    SideDishID=1,
-                    Name="Chips",
-                    Description="a regular chips",
-                    Price=12,
-                },
-                new SideDish
-                {
-                    SideDishID=2,
-                    Name="Sweet Potato Chips",
-                    Description="chips that made from sweet potato",
-                    Price=15,
-                },
-                new SideDish
-                {
-                    SideDishID=3,
-                    Name="Rice",
-                    Description="white rice",
-                    Price=18,
-                },
-            };
-
-            sideDishes.ForEach(s => context.SideDishes.Add(s));
-            context.SaveChanges();
-
-
             var reviews = new List<Review>
             {
                 new Review

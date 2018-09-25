@@ -25,15 +25,6 @@ namespace HamburgersBlog.Controllers
         }
 
         // GET: Reviews/Create
-        public ActionResult Add(int ResturantId)
-        {
-            var newReview = new Review();
-            newReview.RestaurantID = ResturantId; // this will be sent from the ArticleDetails View, hold on :).
-
-            return PartialView(newReview);
-        }
-
-        // GET: Reviews/Create
         public ActionResult Create()
         {
             ViewBag.ResturantId = new SelectList(db.Restaurants, "ResturantId", "Name");
