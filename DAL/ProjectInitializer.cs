@@ -17,25 +17,25 @@ namespace HamburgersBlog.DAL
                 {
                     CommentID=1,
                     PostID=1,
-                    Title="You are right!",
-                    AuthorName="MoanaLover123",
-                    Content="She is the best!",
+                    Title="Dam Right!",
+                    AuthorName="IDontLoveBurgersXD",
+                    Content="You just can't be wrong about that Burger",
                 },
                 new Comment
                 {
                     CommentID=2,
                     PostID=1,
                     Title="You are wrong!",
-                    AuthorName="MoanaHater123",
-                    Content="She is the worst!",
+                    AuthorName="HATERSGONNAHATE",
+                    Content="Haters Gonna HATE!",
                 },
                 new Comment
                 {
                     CommentID=3,
                     PostID=2,
-                    Title="Ill be your friend, Shani",
-                    AuthorName="A Night Stand",
-                    Content="Im a furniture, so i have like.. all of the qualifications",
+                    Title="Kabana?!",
+                    AuthorName="I'm a Pro XD",
+                    Content="As a pro, you don't wanna learn from that shitty place ;)",
                 },
             };
 
