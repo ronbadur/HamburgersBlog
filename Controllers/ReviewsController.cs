@@ -67,7 +67,6 @@ namespace HamburgersBlog.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         [Authorize(Users = "Admin")]
         public ActionResult Edit([Bind(Include = "ReviewID,Title,AuthorName,RestaurantID,Content")] Review review)
         {
@@ -98,7 +97,6 @@ namespace HamburgersBlog.Controllers
 
         // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         [Authorize(Users = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
