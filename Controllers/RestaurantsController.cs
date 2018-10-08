@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using HamburgersBlog.DAL;
 using HamburgersBlog.Models;
@@ -36,6 +34,8 @@ namespace HamburgersBlog.Controllers
             {
                 return HttpNotFound();
             }
+
+            RestaurantInterest.Instance.AddUserInterestInRestaurant(Request, Response, restaurant);
 
             return View(restaurant);
         }
