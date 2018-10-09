@@ -306,6 +306,7 @@
     <Compile Include="DAL\ProjectInitializer.cs" />
     <Compile Include="Models\Hamburger.cs" />
     <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Models\RestaurantInterest.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Global.asax.cs">

@@ -4,7 +4,7 @@
 }
 <h2>Restaurants</h2>
 
-@using (Html.BeginForm("Filter", "Restaurants", FormMethod.Post, new { @class = "form-inline"}))
+@using (Html.BeginForm("Filter", "Restaurants", FormMethod.Post, new { @class = "form-inline" }))
 {
     <h3>Filter Restaurants By:</h3>
     <div class="form-group">
@@ -23,8 +23,8 @@
 }
 
 <div class="container restaurants">
-    <section class="cards">
-        @foreach (var item in Model.ToArray().OrderBy(r => -r.Rate))
+    <section class="cards">      
+        @foreach (var item in Model.ToArray())
         {
             <article class="card card--1">
                 <div class="card__info-hover">

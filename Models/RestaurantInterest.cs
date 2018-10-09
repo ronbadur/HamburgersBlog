@@ -27,7 +27,26 @@ namespace HamburgersBlog.Models
         {
         }
 
-        public void AddUserInterestInRestaurant(HttpRequestBase request, HttpResponseBase response, Restaurant restaurant)
+        internal int getInterestInRestaurant(HttpRequestBase request, HttpResponseBase response, int restaurantID)
+        {
+            Hashtable restaurantInterest = null;
+            int interestInRestaurant = 0;
+            
+            // If there is a cookie already, use it
+            HttpCookie myCookie = request.Cookies["UserInterestInRestaurant"];
+            if (myCookie != null && myCookie.Value != null)
+            {
+                restaurantInterest = (Hashtable)DeserializeFromBase64String(myCookie.Value);
+                if (restaurantInterest[restaurantID] != null)
+                {
+                    interestInRestaurant = (int)restaurantInterest[restaurantID];
+                }
+            } 
+
+            return interestInRestaurant;
+        }
+
+        public void AddUserInterestInRestaurant(HttpRequestBase request, HttpResponseBase response, int restaurantID, int interestScore)
         {
             Hashtable restaurantInterest = null;
 
@@ -48,14 +67,14 @@ namespace HamburgersBlog.Models
             }
 
             // If the restaurant already exist increase it by 1
-            if (restaurantInterest[restaurant.RestaurantID] != null)
+            if (restaurantInterest[restaurantID] != null)
             {
-                restaurantInterest[restaurant.RestaurantID] = (int)restaurantInterest[restaurant.RestaurantID] + 1;
+                restaurantInterest[restaurantID] = (int)restaurantInterest[restaurantID] + interestScore;
             }
             else
             {
                 // If not initialize it to 1;
-                restaurantInterest[restaurant.RestaurantID] = 1;
+                restaurantInterest[restaurantID] = interestScore;
             }
 
             // Set the cookie value.
@@ -63,9 +82,9 @@ namespace HamburgersBlog.Models
 
 
             // Add the cookie.
-            Response.Cookies.Add(myCookie);
+            response.Cookies.Add(myCookie);
 
-            Response.Write("<p> The cookie has been written.");
+            response.Write("<p> The cookie has been written.");
         }
 
         public string SerializeToBase64String(object obj)

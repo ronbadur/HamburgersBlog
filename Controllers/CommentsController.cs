@@ -46,6 +46,7 @@ namespace HamburgersBlog.Controllers
         public ActionResult Create()
         {
             ViewBag.PostID = new SelectList(db.Posts, "PostID", "Title");
+
             return View();
         }
 

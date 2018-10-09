@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -17,7 +18,11 @@ namespace HamburgersBlog.Controllers
         public ActionResult Index()
         {
             var restaurants = db.Restaurants;
-            return View(restaurants.ToList());
+            IOrderedEnumerable<Restaurant> restaurantList = 
+                restaurants.ToList().OrderByDescending(item => item.Rate).
+                    OrderByDescending(item => RestaurantInterest.Instance.getInterestInRestaurant(Request, Response, item.RestaurantID));
+            
+            return View(restaurantList);
         }
 
         // GET: Restaurants/Details/5
@@ -34,8 +39,8 @@ namespace HamburgersBlog.Controllers
             {
                 return HttpNotFound();
             }
-
-            RestaurantInterest.Instance.AddUserInterestInRestaurant(Request, Response, restaurant);
+       
+            RestaurantInterest.Instance.AddUserInterestInRestaurant(Request, Response, restaurant.RestaurantID, 1);
 
             return View(restaurant);
         }
