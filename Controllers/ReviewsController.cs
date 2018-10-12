@@ -43,8 +43,14 @@ namespace HamburgersBlog.Controllers
                 db.Reviews.Add(review);
                 db.SaveChanges();
 
-                RestaurantInterest.Instance.AddUserInterestInRestaurant(Request, Response, review.RestaurantID, 3);
+                // Find from text if it's a positive review
+                bool isRecomended = RestuarantRecomandationByNLP.Instance.isPositiveReview(Request, Response, review.Title + review.Content);
 
+                // Change restuarnt recomendation
+                SaveIsRecomendedForRestuarant(review.RestaurantID, isRecomended);
+
+                RestaurantInterest.Instance.AddUserInterestInRestaurant(Request, Response, review.RestaurantID, 3);
+                
                 return RedirectToAction("../Restaurants/Details", new { id = review.RestaurantID });
             }
             return View(review);
@@ -77,6 +83,13 @@ namespace HamburgersBlog.Controllers
             {
                 db.Entry(review).State = EntityState.Modified;
                 db.SaveChanges();
+
+                // Find from text if it's a positive review
+                bool isRecomended = RestuarantRecomandationByNLP.Instance.isPositiveReview(Request, Response, review.Title + review.Content);
+
+                // Change restuarnt recomendation
+                SaveIsRecomendedForRestuarant(review.RestaurantID, isRecomended);
+
                 return RedirectToAction("../Restaurants/Details", new { id = review.RestaurantID });
             }
             return View(review);
@@ -109,6 +122,13 @@ namespace HamburgersBlog.Controllers
             return RedirectToAction("../Restaurants/Details", new { id = review.RestaurantID });
         }
 
+        private void SaveIsRecomendedForRestuarant(int restId, bool isRecomended)
+        {
+            Restaurant restaurant = db.Restaurants.Find(restId);
+            restaurant.IsRecommended = isRecomended;
+            db.Entry(restaurant).State = EntityState.Modified;
+            db.SaveChanges();
+        }
 
         protected override void Dispose(bool disposing)
         {

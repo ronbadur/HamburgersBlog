@@ -6,6 +6,8 @@ using System.Net;
 using System.Web.Mvc;
 using HamburgersBlog.DAL;
 using HamburgersBlog.Models;
+using DataAccess;
+using libsvm;
 
 namespace HamburgersBlog.Controllers
 {
@@ -13,16 +15,18 @@ namespace HamburgersBlog.Controllers
     {
         private ProjectContext db = new ProjectContext();
 
-
         // GET: Restaurants
         public ActionResult Index()
         {
             var restaurants = db.Restaurants;
             IOrderedEnumerable<Restaurant> restaurantList = 
-                restaurants.ToList().OrderByDescending(item => item.Rate).
-                    OrderByDescending(item => RestaurantInterest.Instance.getInterestInRestaurant(Request, Response, item.RestaurantID));
+                restaurants.ToList().
+                    OrderByDescending(item => item.Rate).
+                    OrderByDescending(item => RestaurantInterest.Instance.getInterestInRestaurant(Request, Response, item.RestaurantID)).
+                    OrderByDescending(item => item.IsRecommended);
             
             return View(restaurantList);
+
         }
 
         // GET: Restaurants/Details/5

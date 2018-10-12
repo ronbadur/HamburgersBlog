@@ -25,6 +25,7 @@ namespace HamburgersBlog.Models
         public Area Area { get; set; }
         public bool IsVeganFriendly { get; set; }
         public bool IsKosher { get; set; }
+        public bool IsRecommended { get; set; }
         public bool IsParkingAvailable { get; set; }
 
         public virtual ICollection<Hamburger> Hamburgers { get; set; }

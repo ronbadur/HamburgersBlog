@@ -80,6 +80,12 @@ namespace HamburgersBlog.Controllers
 
                 RestaurantInterest.Instance.AddUserInterestInRestaurant(Request, Response, post.RestaurantID, 5);
 
+                // Find from text if it's a positive review
+                bool isRecomended = RestuarantRecomandationByNLP.Instance.isPositiveReview(Request, Response, post.Title + post.Content);
+
+                // Change restuarnt recomendation
+                SaveIsRecomendedForRestuarant(post.RestaurantID, isRecomended);
+
                 return RedirectToAction("../Home/Index");
             }
             return View(post);
@@ -115,6 +121,13 @@ namespace HamburgersBlog.Controllers
                 post.Date = DateTime.Now;
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
+
+                // Find from text if it's a positive review
+                bool isRecomended = RestuarantRecomandationByNLP.Instance.isPositiveReview(Request, Response, post.Title + post.Content);
+
+                // Change restuarnt recomendation
+                SaveIsRecomendedForRestuarant(post.RestaurantID, isRecomended);
+
                 return RedirectToAction("../Home/Index");
             }
             var allRestaurants = db.Restaurants;
@@ -227,6 +240,14 @@ namespace HamburgersBlog.Controllers
             }
 
 
+        }
+
+        private void SaveIsRecomendedForRestuarant(int restId, bool isRecomended)
+        {
+            Restaurant restaurant = db.Restaurants.Find(restId);
+            restaurant.IsRecommended = isRecomended;
+            db.Entry(restaurant).State = EntityState.Modified;
+            db.SaveChanges();
         }
 
         protected override void Dispose(bool disposing)
