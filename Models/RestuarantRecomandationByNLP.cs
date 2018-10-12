@@ -29,7 +29,7 @@ namespace HamburgersBlog.Models
 
         private RestuarantRecomandationByNLP()
         {
-            const string dataFilePath = @"D:\Temp\goodOrBad.csv";
+            const string dataFilePath = @"C:\Development\HamburgersBlogSln\HamburgersBlog\App_Data\TrainingForIsPositiveAlgo.csv";
             var dataTable = DataAccess.DataTable.New.ReadCsv(dataFilePath);
             List<string> x = dataTable.Rows.Select(row => row["Text"]).ToList();
             double[] y = dataTable.Rows.Select(row => double.Parse(row["IsPositive"]))
