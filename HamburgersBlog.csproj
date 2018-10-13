@@ -404,7 +404,7 @@
     <Compile Include="Controllers\TwitterController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="DAL\ProjectInitializer.cs" />
-    <Compile Include="Models\RestuarantRecomandationByNLP.cs" />
+    <Compile Include="Models\RestuarantRecommendationByNLP.cs" />
     <Compile Include="Models\TextClassificationProblemBuilder.cs" />
     <Compile Include="Models\Hamburger.cs" />
     <Compile Include="Models\Restaurant.cs" />

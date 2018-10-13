@@ -7,14 +7,14 @@ using libsvm;
 
 namespace HamburgersBlog.Models
 {
-    public class RestuarantRecomandationByNLP
+    public class RestuarantRecommendationByNLP
     {
-        private static readonly RestuarantRecomandationByNLP m_instance = null;
+        private static readonly RestuarantRecommendationByNLP m_instance = null;
         private static Dictionary<int, string> _predictionDictionary;
         private static IReadOnlyList<string> vocabulary;
         private static C_SVC model;
 
-        public static RestuarantRecomandationByNLP Instance
+        public static RestuarantRecommendationByNLP Instance
         {
             get
             {
@@ -22,15 +22,15 @@ namespace HamburgersBlog.Models
             }
         }
 
-        static RestuarantRecomandationByNLP()
+        static RestuarantRecommendationByNLP()
         {
-            m_instance = new RestuarantRecomandationByNLP();
+            m_instance = new RestuarantRecommendationByNLP();
         }
 
-        private RestuarantRecomandationByNLP()
+        private RestuarantRecommendationByNLP()
         {
-            const string dataFilePath = @"C:\Development\HamburgersBlogSln\HamburgersBlog\App_Data\TrainingForIsPositiveAlgo.csv";
-            var dataTable = DataAccess.DataTable.New.ReadCsv(dataFilePath);
+            string dataFilePath = HttpContext.Current.Server.MapPath("~/App_Data/TrainingForIsPositiveAlgo.csv");
+            var dataTable = DataTable.New.ReadCsv(dataFilePath);
             List<string> x = dataTable.Rows.Select(row => row["Text"]).ToList();
             double[] y = dataTable.Rows.Select(row => double.Parse(row["IsPositive"]))
                                        .ToArray();
@@ -46,8 +46,8 @@ namespace HamburgersBlog.Models
             _predictionDictionary = new Dictionary<int, string> { { -1, "Bad" }, { 1, "Good" } };
         }
 
-        internal bool isPositiveReview(HttpRequestBase request, HttpResponseBase response, string review)
-        { 
+        internal bool IsPositiveReview(HttpRequestBase request, HttpResponseBase response, string review)
+        {
             var newX = TextClassificationProblemBuilder.CreateNode(review, vocabulary);
 
             var predictedY = model.Predict(newX);
